@@ -12,7 +12,10 @@ public class MessagesTests
                                    "player_missed_monster", "player_hit_monster", "monster_defended_player_attack",
                                    "monster_health_now", "monster_attack_intro", "monster_missed_player",
                                    "monster_hit_player", "player_defended_monster_attack", "monster_damage_dealt",
-                                   "combat_monster_header" };
+                                   "combat_monster_header",
+                                   "path_prompt_full", "path_invalid", "west_path_narrative",
+                                   "goblin_intro", "goblin_stats_intro", "goblin_stats_header",
+                                   "goblin_encounter_prompt" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
@@ -195,6 +198,21 @@ public class MessagesTests
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from Italian dictionary.");
         }
+    }
+
+    [TestMethod]
+    [DataRow("English")]
+    [DataRow("Spanish")]
+    [DataRow("French")]
+    [DataRow("Italian")]
+    public void PathMessages_ListWestChoice(string language)
+    {
+        Messages messages = new Messages();
+        messages.SetCurrentLanguage(language);
+        messages.ReadDictionary();
+
+        StringAssert.Contains(messages.GetMessage("path_prompt_full"), "'w'");
+        StringAssert.Contains(messages.GetMessage("path_invalid"), "'w'");
     }
 
     [TestMethod]
