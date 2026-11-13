@@ -13,6 +13,7 @@ public class PlayerTests
         Assert.AreEqual(0, player.Strength);
         Assert.AreEqual(0, player.Agility);
         Assert.AreEqual(0, player.HealthPoints);
+        Assert.AreEqual(0, player.Gold);
 
         Assert.IsNull(player.Weapon);
     }
