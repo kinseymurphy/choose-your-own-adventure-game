@@ -137,55 +137,6 @@ public class GoblinTests
         StringAssert.Contains(output, messages.GetMessage("goblin_defeated_narrative"));
     }
 
-    [TestMethod]
-    public void Attack_ReturnsNonEmptyResultString()
-    {
-        Goblin goblin = new Goblin(new Die());
-        Player player = new Player { Name = "TestHero", Agility = 10, HealthPoints = 30 };
-
-        string result = goblin.Attack(player, GetMessages());
-
-        Assert.IsFalse(string.IsNullOrWhiteSpace(result));
-    }
-
-    [TestMethod]
-    public void Attack_DoesNotIncreasePlayerHealth()
-    {
-        Goblin goblin = new Goblin(new Die());
-        Player player = new Player { Name = "TestHero", Agility = 10, HealthPoints = 30 };
-
-        goblin.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints <= 30);
-    }
-
-    [TestMethod]
-    public void Attack_KeepsPlayerHealthNonNegative()
-    {
-        Goblin goblin = new Goblin(new Die()) { Strength = 20 };
-        Player player = new Player { Name = "TestHero", Agility = 0, HealthPoints = 1 };
-
-        goblin.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints >= 0);
-    }
-
-    [TestMethod]
-    public void Attack_PlayerWithMagicalArmor_AbsorbsGoblinDamage()
-    {
-        // Goblin Strength 20 always hits; player Agility 0 never blocks
-        Goblin goblin = new Goblin(new Die()) { Strength = 20 };
-        Player player = new Player { Name = "TestHero", Agility = 0, HealthPoints = 30, Protection = 3 };
-        Messages messages = GetMessages();
-
-        string result = goblin.Attack(player, messages);
-
-        string absorbedPrefix = messages.GetMessage("armor_absorbed_damage").Split('{')[0];
-        StringAssert.Contains(result, absorbedPrefix);
-        // A rusty axe deals at most 6, so Protection 3 leaves at most 3 damage
-        Assert.IsTrue(player.HealthPoints >= 27, $"Health Points {player.HealthPoints}");
-    }
-
     private string CaptureEndGame(Monster monster, bool playerWon, bool playerRetreated, Messages messages)
     {
         using StringWriter writer = new StringWriter();

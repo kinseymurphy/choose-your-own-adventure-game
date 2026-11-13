@@ -197,11 +197,6 @@ public class Player
         return _die.Roll(Weapon.MaxDamage);
     }
 
-    public int ReduceDamage(int damage)
-    {
-        return Math.Max(0, damage - Protection);
-    }
-
     public string Attack(Monster monster, Messages messages)
     {
         if (Weapon == null)

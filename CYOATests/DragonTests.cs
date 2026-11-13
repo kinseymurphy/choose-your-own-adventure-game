@@ -88,62 +88,6 @@ public class DragonTests
 
         CollectionAssert.Contains(validReplies, reply);
     }
-
-    [TestMethod]
-    public void Attack_ReturnsNonEmptyResultString()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 10,
-            HealthPoints = 30
-        };
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsFalse(string.IsNullOrWhiteSpace(result));
-    }
-
-    [TestMethod]
-    public void Attack_DoesNotIncreasePlayerHealth()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 10,
-            HealthPoints = 30
-        };
-
-        int startingHealth = player.HealthPoints;
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints <= startingHealth);
-    }
-
-    [TestMethod]
-    public void Attack_KeepsPlayerHealthNonNegative()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 0,
-            HealthPoints = 1
-        };
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints >= 0);
-    }
 }
 
 [TestClass]

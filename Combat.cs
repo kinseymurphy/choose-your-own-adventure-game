@@ -79,6 +79,65 @@ public class Combat
 
     public void MonsterAttacksPlayerSequence()
     {
-        Console.WriteLine(monster.Attack(player, messages));
+        var output = new List<string>();
+
+        output.Add(string.Format(
+            messages.GetMessage("monster_attack_intro"),
+            monster.Name,
+            player.Name,
+            messages.TranslateWeaponForDisplay(monster.Weapon.Type)
+        ));
+
+        if (!string.IsNullOrWhiteSpace(monster.Weapon.AsciiArt))
+            output.Add(monster.Weapon.AsciiArt);
+
+        AttackResult attack = ResolveAttack(monster.Strength, player.Agility, monster.Weapon.MaxDamage, player.Protection);
+
+        if (!attack.Hit)
+        {
+            output.Add(string.Format(messages.GetMessage("monster_missed_player"), monster.Name, player.Name));
+            Console.WriteLine(string.Join(Environment.NewLine, output));
+            return;
+        }
+
+        output.Add(string.Format(messages.GetMessage("monster_hit_player"), monster.Name, player.Name));
+
+        if (attack.Blocked)
+        {
+            output.Add(string.Format(messages.GetMessage("player_defended_monster_attack"), player.Name));
+            Console.WriteLine(string.Join(Environment.NewLine, output));
+            return;
+        }
+
+        // The player's Health Points stop at 0
+        player.HealthPoints = Math.Max(0, player.HealthPoints - attack.Damage);
+
+        if (player.Protection > 0)
+            output.Add(string.Format(messages.GetMessage("armor_absorbed_damage"), attack.DamageRoll - attack.Damage));
+
+        output.Add(string.Format(messages.GetMessage("monster_damage_dealt"), monster.Name, attack.Damage));
+        output.Add(string.Format(messages.GetMessage("player_health_now"), player.Name, player.HealthPoints));
+
+        if (player.HealthPoints <= 0)
+            output.Add(string.Format(messages.GetMessage("player_defeated_narrative"), player.Name));
+
+        Console.WriteLine(string.Join(Environment.NewLine, output));
+    }
+
+    // What one attack did: missed, blocked, or hit for Damage (the DamageRoll less any Protection)
+    private readonly record struct AttackResult(bool Hit, bool Blocked, int DamageRoll, int Damage);
+
+    // The attack sequence both directions share (ADR 0004). The rolls are always in this order:
+    // attack d20, then defense d20 only on a hit, then damage only when not blocked.
+    private AttackResult ResolveAttack(int attackerStrength, int defenderAgility, int damageSides, int protection)
+    {
+        if (_die.Roll(20) > attackerStrength)
+            return new AttackResult(false, false, 0, 0);
+
+        if (_die.Roll(20) <= defenderAgility)
+            return new AttackResult(true, true, 0, 0);
+
+        int damageRoll = _die.Roll(damageSides);
+        return new AttackResult(true, false, damageRoll, Math.Max(0, damageRoll - protection));
     }
 }
