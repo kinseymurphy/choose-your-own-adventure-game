@@ -20,6 +20,26 @@ _Avoid_: Shop, store
 The trader met on the South path who sells Magical Armor and Magical Weapons for Gold.
 _Avoid_: Shopkeeper, vendor, trader
 
+**Dead End**:
+An encounter after which the game ends, whatever the outcome: victory, defeat or retreat. The Dragon Encounter and the Goblin Encounter are Dead Ends; the Merchant Encounter is not.
+_Avoid_: Final encounter, boss fight
+
+**Dragon Encounter**:
+What happens when the player takes the North path: they meet the dragon Smolderfang and may fight it. A Dead End.
+
+**Goblin Encounter**:
+What happens when the player takes the West path into the Murky Swamp: they meet the goblin Grubnik and may fight him. A Dead End.
+
+**Murky Swamp**:
+The place the West path leads to, where the Goblin Encounter happens.
+_Avoid_: Bog, marsh
+
+### Combat
+
+**Monster**:
+Any creature the player can fight. The dragon Smolderfang and the goblin Grubnik are Monsters; the Merchant is not.
+_Avoid_: Enemy, foe, opponent, creature
+
 ### Equipment
 
 **Magical Armor**:
