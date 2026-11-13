@@ -32,6 +32,14 @@ public class DragonTests
     }
 
     [TestMethod]
+    public void Dragon_IsAMonster()
+    {
+        Dragon dragon = new Dragon(new Die());
+
+        Assert.IsInstanceOfType(dragon, typeof(Monster));
+    }
+
+    [TestMethod]
     public void GetRandomDefenseTaunt_ReturnsExpectedTaunt()
     {
         Die die = new Die();

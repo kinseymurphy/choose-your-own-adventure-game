@@ -80,14 +80,14 @@ public class Game
         }
     }
 
-    public void EndGame(bool playerWon, bool playerRetreated, Messages messages)
+    public void EndGame(Monster monster, bool playerWon, bool playerRetreated, Messages messages)
     {
         if (playerRetreated)
             Console.WriteLine(messages.GetMessage("retreat"));
         else if (playerWon)
-            Console.WriteLine(messages.GetMessage("victory"));
+            Console.WriteLine(messages.GetMessage(monster.VictoryKey));
         else
-            Console.WriteLine(messages.GetMessage("defeat"));
+            Console.WriteLine(messages.GetMessage(monster.DefeatKey));
     }
 
     public bool IsValidMenuChoice(string? input)
@@ -162,7 +162,7 @@ public class Game
                 }
                 else
                 {
-                   EndGame(playerWon, false, messages); 
+                   EndGame(dragon, playerWon, false, messages); 
                 }
                 
                 return;
