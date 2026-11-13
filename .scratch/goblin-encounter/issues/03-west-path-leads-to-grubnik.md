@@ -54,7 +54,7 @@ The path prompt now describes three paths, and the invalid-path message lists `n
 
 ## Comments
 
-Implemented. New `Goblin` Monster: Grubnik, 1d12 Strength/Agility/Health Points from the shared Die, a "rusty axe" (Max Damage 6, ASCII art drawn as a curved blade on a handle, updated after code review). His combat keys (attack intro, taunts, replies, defeated line, endings) already point at `goblin_*` names, but those texts arrive in ticket 04, and nothing can reach them yet because attacking isn't wired.
+Implemented. New `Goblin` Monster: Grubnik, 1d12 Strength/Agility/Health Points from the shared Die, a "rusty axe" (Max Damage 6, ASCII art of a small hatchet with a curved blade and vertical handle, updated after code review). His combat keys (attack intro, taunts, replies, defeated line, endings) already point at `goblin_*` names, but those texts arrive in ticket 04, and nothing can reach them yet because attacking isn't wired.
 
 `Game` creates the Goblin with the shared Die. `w`/`west` returns West from the path prompt and is accepted by `IsValidPathChoice`. The West branch runs `HandleGoblinEncounter` and then ends the game. The handler mirrors `HandleDragonEncounter`: West narrative, green intro, magic-ring line and stats, then the goblin prompt. It handles `r`/`retreat` (shared `retreat` ending) and invalid input. New keys in all four languages: `west_path_narrative`, `goblin_intro`, `goblin_stats_intro`, `goblin_stats_header`, `goblin_encounter_prompt`. `path_prompt_full` and `path_invalid` were rewritten for three paths in all four languages.
 
