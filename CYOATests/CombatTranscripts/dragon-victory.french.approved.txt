@@ -1,0 +1,53 @@
+===== Statistiques de Combat =====
+--- Joueur ---
+Nom: Bob
+Force: 14
+Agilite: 8
+Points de Vie: 30
+Or: 5
+Protection: 0
+Arme: epee longue
+Points de Dommages Maximum: 12
+
+--- Smolderfang ---
+Nom: Smolderfang
+Force: 10
+Agilite: 9
+Points de Vie: 15
+Arme: griffes
+Points de Dommages Maximum: 12
+En tant que Guerrier, vous sortez votre epee longue et attaquez le dragon.
+-)=====>
+Vous avez manque Smolderfang.
+Smolderfang attaque Bob avec griffes!
+<<< claws >>>
+Smolderfang a manque Bob.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Guerrier, vous sortez votre epee longue et attaquez le dragon.
+-)=====>
+Vous avez touche Smolderfang.
+Smolderfang defend avec succes votre attaque.
+C'est tout ce que tu as? J'ai vu des chatons avec plus de feu dans leurs pattes!
+Smolderfang attaque Bob avec griffes!
+<<< claws >>>
+Smolderfang touche Bob.
+Smolderfang inflige 7 degats.
+Les points de vie de Bob sont maintenant de 23.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Guerrier, vous sortez votre epee longue et attaquez le dragon.
+-)=====>
+Vous avez touche Smolderfang.
+Vous infligez 9 degats.
+Les points de vie de Smolderfang sont maintenant de 6.
+C'etait... inattendu. Mais je t'assure que cela ne se reproduira pas.
+Smolderfang attaque Bob avec griffes!
+<<< claws >>>
+Smolderfang touche Bob.
+Bob defend avec succes l'attaque.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Guerrier, vous sortez votre epee longue et attaquez le dragon.
+-)=====>
+Vous avez touche Smolderfang.
+Vous infligez 12 degats.
+Les points de vie de Smolderfang sont maintenant de -6.
+Avec les derniers mots 'Arggg!', vous avez vaincu le dragon.

@@ -1,0 +1,24 @@
+===== Combat Stats =====
+--- Player ---
+Name: Bob
+Strength: 14
+Agility: 8
+Health Points: 30
+Gold: 0
+Protection: 3
+Weapon: magical long sword
+Weapon's Maximum Damage Points: 16
+
+--- Smolderfang ---
+Name: Smolderfang
+Strength: 10
+Agility: 9
+Health Points: 15
+Weapon: claws
+Weapon's Maximum Damage Points: 12
+As a Fighter, you withdraw your magical long sword and attack the dragon.
+-)=====>
+You hit Smolderfang.
+You deal 16 damage.
+Smolderfang's health points are now -1.
+With the last words of 'Arggg!', you have defeated the dragon.

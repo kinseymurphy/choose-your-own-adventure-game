@@ -1,0 +1,88 @@
+===== Statistiche di Combattimento =====
+--- Giocatore ---
+Nome: Ana
+Forza: 2
+Agilita: 6
+Punti Vita: 8
+Oro: 0
+Protezione: 3
+Arma: arco lungo
+Danno Massimo dell'Arma: 8
+
+--- Grubnik ---
+Nome: Grubnik
+Forza: 11
+Agilita: 5
+Punti Vita: 12
+Arma: ascia arrugginita
+Danno Massimo dell'Arma: 6
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai mancato Grubnik.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik ha mancato Ana.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai mancato Grubnik.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik colpisce Ana.
+Ana para con successo l'attacco.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai colpito Grubnik.
+Infliggi 5 danni.
+I punti vita di Grubnik ora sono 7.
+Me la pagherai! Non oggi, ovviamente. Ma un giorno. Probabilmente.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik colpisce Ana.
+La tua Armatura Magica assorbe 2 danni.
+Grubnik infligge 0 danni.
+I punti vita di Ana ora sono 8.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai mancato Grubnik.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik colpisce Ana.
+La tua Armatura Magica assorbe 3 danni.
+Grubnik infligge 3 danni.
+I punti vita di Ana ora sono 5.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai mancato Grubnik.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik colpisce Ana.
+La tua Armatura Magica assorbe 3 danni.
+Grubnik infligge 3 danni.
+I punti vita di Ana ora sono 2.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Arciere, estrai il tuo arco lungo e attacchi il goblin, che squittisce in modo per niente terrificante.
+}    -->
+Hai mancato Grubnik.
+Grubnik attacca Ana con ascia arrugginita!
+(>|
+  |
+  !
+Grubnik colpisce Ana.
+La tua Armatura Magica assorbe 3 danni.
+Grubnik infligge 3 danni.
+I punti vita di Ana ora sono 0.
+Ana e stato sconfitto.
