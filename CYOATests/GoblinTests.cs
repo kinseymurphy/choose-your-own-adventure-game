@@ -374,6 +374,16 @@ public class GoblinTests
     }
 
     [TestMethod]
+    public void NewGoblin_RollsStrengthAgilityAndHealthPointsFromTheDie()
+    {
+        Goblin goblin = new Goblin(new ScriptedDie(3, 12, 7));
+
+        Assert.AreEqual(3, goblin.Strength);
+        Assert.AreEqual(12, goblin.Agility);
+        Assert.AreEqual(7, goblin.HealthPoints);
+    }
+
+    [TestMethod]
     public void NewGoblin_RollsStatsFrom1To12()
     {
         // Stats are random, so check many goblins to catch a d20 roll

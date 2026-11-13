@@ -44,7 +44,7 @@ public class CombatTests
         Dragon dragon = new Dragon(new Die());
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         Assert.AreSame(player, combat.player);
         Assert.AreSame(dragon, combat.monster);
@@ -57,7 +57,7 @@ public class CombatTests
         Dragon dragon = new Dragon(new Die());
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         Assert.IsFalse(combat.PlayerRetreated);
     }
@@ -69,7 +69,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -83,7 +83,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -98,7 +98,7 @@ public class CombatTests
         Player player = new Player();
         Goblin goblin = new Goblin(new Die());
 
-        Combat combat = new Combat(player, goblin, CreateEnglishMessages());
+        Combat combat = new Combat(player, goblin, CreateEnglishMessages(), new Die());
 
         Assert.AreSame(goblin, combat.monster);
     }
@@ -110,7 +110,7 @@ public class CombatTests
         Goblin goblin = new Goblin(new Die()) { Strength = 7, Agility = 5, HealthPoints = 9 };
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, goblin, messages);
+        Combat combat = new Combat(player, goblin, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -129,7 +129,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -143,7 +143,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -162,7 +162,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 
@@ -181,7 +181,7 @@ public class CombatTests
         Dragon dragon = CreateTestDragon();
         Messages messages = CreateEnglishMessages();
 
-        Combat combat = new Combat(player, dragon, messages);
+        Combat combat = new Combat(player, dragon, messages, new Die());
 
         string result = combat.GetCombatStatsDisplay();
 

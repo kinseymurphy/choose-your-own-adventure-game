@@ -25,7 +25,7 @@ public class Dragon : Monster
 
     // The dragon uses a placeholder weapon object for now.
     // This can be refined later if combat requirements expand.
-    public Dragon(Die die) : base(die, "Smolderfang", new Weapon("claws", 12, "<<< claws >>>"))
+    public Dragon(IDie die) : base(die, "Smolderfang", new Weapon("claws", 12, "<<< claws >>>"))
     {
         // Dragon stats are initialized using Die so the class aligns better
         // with the sequence/start-game diagrams and shared repo structure.

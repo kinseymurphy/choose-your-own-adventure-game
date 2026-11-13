@@ -3,13 +3,21 @@ public class Game
     // Null when the game runs without saving, as the older tests do
     private readonly ProfileStore? _profileStore;
 
+    // Shared by both Monsters and every Combat (ADR 0004)
+    private readonly IDie _die;
+
     public Game() : this(null)
     {
     }
 
-    public Game(ProfileStore? profileStore)
+    public Game(ProfileStore? profileStore) : this(profileStore, new Die())
+    {
+    }
+
+    public Game(ProfileStore? profileStore, IDie die)
     {
         _profileStore = profileStore;
+        _die = die;
     }
 
     public void StartGame()
@@ -19,11 +27,9 @@ public class Game
         Console.WriteLine("Welcome to Choose Your Adventure Game");
         Console.WriteLine("=====================================\n");
 
-        // Instantiate Die first (per sequence diagram)
-        Die die = new Die();
-
-        Dragon dragon = new Dragon(die);
-        Goblin goblin = new Goblin(die);
+        // The Die is created first (per sequence diagram), in the constructor
+        Dragon dragon = new Dragon(_die);
+        Goblin goblin = new Goblin(_die);
         Merchant merchant = new Merchant();
 
         // Language selection shown before Messages dictionary is loaded
@@ -253,7 +259,7 @@ public class Game
 
             if (input == "a" || input == "attack")
             {
-                Combat combat = new Combat(player, dragon, messages);
+                Combat combat = new Combat(player, dragon, messages, _die);
                 bool playerWon = combat.StartCombat();
 
                 if (combat.PlayerRetreated)
@@ -296,7 +302,7 @@ public class Game
 
             if (input == "a" || input == "attack")
             {
-                Combat combat = new Combat(player, goblin, messages);
+                Combat combat = new Combat(player, goblin, messages, _die);
                 bool playerWon = combat.StartCombat();
 
                 // Combat already showed its own retreat message

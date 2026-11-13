@@ -21,3 +21,16 @@
   - **Monster stats:** a `Dragon` built with scripted rolls 15, 9, 18 has Strength 15, Agility 9 and Health Points 18. A `Goblin` built with 3, 12, 7 has 3, 12 and 7.
   - **Game:** a `Game` given a scripted die creates its dragon and goblin from it. For example, the West path shows Grubnik's scripted stats, then exits by retreating.
 - [ ] The full test suite passes.
+
+## Comments
+
+**Done on 2026-11-13 by Claude:**
+
+- `dotnet test CYOATests` passed 254 of 254 tests. The suite was 246 before this ticket, so it adds 8 tests:
+  - 4 in `ScriptedDieTests`;
+  - 1 each in `DragonTests` and `GoblinTests` for stats from scripted rolls;
+  - 2 in the new `GameDiceTests` for the North and West paths showing scripted Monster stats.
+- The dice interface is `IDie`, in `Die.cs` next to `Die`. The scripted die is `CYOATests/ScriptedDie.cs`.
+- `Game` gained `Game(ProfileStore?, IDie)`. `Game()` and `Game(ProfileStore?)` default to a random `Die`, so `Program.cs` is unchanged. The die is now created when the `Game` is constructed instead of at the start of `StartGame`, which makes no difference to play.
+- `Combat` only stores the die. Its 10 constructor calls in `CombatTests` pass `new Die()`, matching how those tests already build their Monsters, and none of them roll.
+- No tests were deleted. `NewGoblin_RollsStatsFrom1To12` (200 random goblins) still passes. It could become a scripted-die test later, because the scripted die rejects a roll above 12 on a d12.

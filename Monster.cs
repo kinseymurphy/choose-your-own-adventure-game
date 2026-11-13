@@ -2,7 +2,7 @@
 // subclass only supplies its stats, weapon and its own message keys.
 public abstract class Monster
 {
-    protected readonly Die _die;
+    protected readonly IDie _die;
 
     public string Name { get; set; }
     public int Strength { get; set; }
@@ -19,7 +19,7 @@ public abstract class Monster
     protected abstract IReadOnlyList<string> DefenseTauntKeys { get; }
     protected abstract IReadOnlyList<string> DamageReplyKeys { get; }
 
-    protected Monster(Die die, string name, Weapon weapon)
+    protected Monster(IDie die, string name, Weapon weapon)
     {
         _die = die;
         Name = name;

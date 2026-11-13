@@ -32,6 +32,16 @@ public class DragonTests
     }
 
     [TestMethod]
+    public void NewDragon_RollsStrengthAgilityAndHealthPointsFromTheDie()
+    {
+        Dragon dragon = new Dragon(new ScriptedDie(15, 9, 18));
+
+        Assert.AreEqual(15, dragon.Strength);
+        Assert.AreEqual(9, dragon.Agility);
+        Assert.AreEqual(18, dragon.HealthPoints);
+    }
+
+    [TestMethod]
     public void Dragon_IsAMonster()
     {
         Dragon dragon = new Dragon(new Die());

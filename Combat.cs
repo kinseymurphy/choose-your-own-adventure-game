@@ -6,11 +6,15 @@ public class Combat
 
     public bool PlayerRetreated { get; private set; }
 
-    public Combat(Player player, Monster monster, Messages messages)
+    // Every combat roll will go through this die (ADR 0004)
+    private readonly IDie _die;
+
+    public Combat(Player player, Monster monster, Messages messages, IDie die)
     {
         this.player = player;
         this.monster = monster;
         this.messages = messages;
+        _die = die;
         PlayerRetreated = false;
     }
 
