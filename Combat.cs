@@ -57,7 +57,7 @@ public class Combat
         output.AddRange(player.GetCombatStatLines(messages));
 
         output.Add("");
-        output.Add(messages.GetMessage("combat_dragon_header"));
+        output.Add(string.Format(messages.GetMessage("combat_monster_header"), monster.Name));
         output.Add(messages.GetMessage("stats_name") + monster.Name);
         output.Add(messages.GetMessage("stats_strength") + monster.Strength);
         output.Add(messages.GetMessage("stats_agility") + monster.Agility);

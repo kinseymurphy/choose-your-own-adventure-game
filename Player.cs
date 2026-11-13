@@ -220,18 +220,18 @@ public class Player
         // MISS
         if (!AttackHits(attackRoll))
         {
-            output.Add(string.Format(messages.GetMessage("player_missed_dragon"), monster.Name));
+            output.Add(string.Format(messages.GetMessage("player_missed_monster"), monster.Name));
             return string.Join(Environment.NewLine, output);
         }
 
-        output.Add(string.Format(messages.GetMessage("player_hit_dragon"), monster.Name));
+        output.Add(string.Format(messages.GetMessage("player_hit_monster"), monster.Name));
 
         int defenseRoll = _die.Roll(20);
 
         // DEFENSE
         if (defenseRoll <= monster.Agility)
         {
-            output.Add(string.Format(messages.GetMessage("dragon_defended_player_attack"), monster.Name));
+            output.Add(string.Format(messages.GetMessage("monster_defended_player_attack"), monster.Name));
             output.Add(string.Format(
                 monster.GetRandomDefenseTaunt(messages),
                 messages.TranslateRaceForDisplay(Race)
@@ -244,7 +244,7 @@ public class Player
         monster.HealthPoints -= damage;
 
         output.Add(string.Format(messages.GetMessage("player_damage_dealt"), damage));
-        output.Add(string.Format(messages.GetMessage("dragon_health_now"), monster.Name, monster.HealthPoints));
+        output.Add(string.Format(messages.GetMessage("monster_health_now"), monster.Name, monster.HealthPoints));
 
         // END
         if (monster.HealthPoints <= 0)

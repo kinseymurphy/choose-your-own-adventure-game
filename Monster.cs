@@ -46,7 +46,7 @@ public abstract class Monster
         var output = new List<string>();
 
         output.Add(string.Format(
-            messages.GetMessage("dragon_attack_intro"),
+            messages.GetMessage("monster_attack_intro"),
             Name,
             player.Name,
             messages.TranslateWeaponForDisplay(Weapon.Type)
@@ -59,17 +59,17 @@ public abstract class Monster
 
         if (!AttackHits(attackRoll))
         {
-            output.Add(string.Format(messages.GetMessage("dragon_missed_player"), Name, player.Name));
+            output.Add(string.Format(messages.GetMessage("monster_missed_player"), Name, player.Name));
             return string.Join(Environment.NewLine, output);
         }
 
-        output.Add(string.Format(messages.GetMessage("dragon_hit_player"), Name, player.Name));
+        output.Add(string.Format(messages.GetMessage("monster_hit_player"), Name, player.Name));
 
         int defenseRoll = _die.Roll(20);
 
         if (defenseRoll <= player.Agility)
         {
-            output.Add(string.Format(messages.GetMessage("player_defended_dragon_attack"), player.Name));
+            output.Add(string.Format(messages.GetMessage("player_defended_monster_attack"), player.Name));
             return string.Join(Environment.NewLine, output);
         }
 
@@ -83,7 +83,7 @@ public abstract class Monster
         if (player.Protection > 0)
             output.Add(string.Format(messages.GetMessage("armor_absorbed_damage"), damageRoll - damage));
 
-        output.Add(string.Format(messages.GetMessage("dragon_damage_dealt"), Name, damage));
+        output.Add(string.Format(messages.GetMessage("monster_damage_dealt"), Name, damage));
         output.Add(string.Format(messages.GetMessage("player_health_now"), player.Name, player.HealthPoints));
 
         if (player.HealthPoints <= 0)

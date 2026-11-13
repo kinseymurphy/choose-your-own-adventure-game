@@ -8,7 +8,11 @@ public class MessagesTests
                                    "roll_gold", "stats_gold", "stats_protection",
                                    "merchant_greeting", "merchant_menu", "merchant_armor_purchased",
                                    "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell",
-                                   "armor_absorbed_damage", "merchant_weapon_purchased" };
+                                   "armor_absorbed_damage", "merchant_weapon_purchased",
+                                   "player_missed_monster", "player_hit_monster", "monster_defended_player_attack",
+                                   "monster_health_now", "monster_attack_intro", "monster_missed_player",
+                                   "monster_hit_player", "player_defended_monster_attack", "monster_damage_dealt",
+                                   "combat_monster_header" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()

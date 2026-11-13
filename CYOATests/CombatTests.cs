@@ -89,7 +89,21 @@ public class CombatTests
 
         StringAssert.Contains(result, messages.GetMessage("combat_stats_header"));
         StringAssert.Contains(result, messages.GetMessage("combat_player_header"));
-        StringAssert.Contains(result, messages.GetMessage("combat_dragon_header"));
+        StringAssert.Contains(result, string.Format(messages.GetMessage("combat_monster_header"), dragon.Name));
+    }
+
+    [TestMethod]
+    public void GetCombatStatsDisplay_MonsterHeaderShowsMonsterName()
+    {
+        Player player = CreateTestPlayer();
+        Dragon dragon = CreateTestDragon();
+        Messages messages = CreateEnglishMessages();
+
+        Combat combat = new Combat(player, dragon, messages);
+
+        string result = combat.GetCombatStatsDisplay();
+
+        StringAssert.Contains(result, "--- Smolderfang ---");
     }
 
     [TestMethod]
