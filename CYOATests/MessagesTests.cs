@@ -7,7 +7,8 @@ public class MessagesTests
                                    "victory", "defeat", "retreat", "invalid", "goodbye",
                                    "roll_gold", "stats_gold", "stats_protection",
                                    "merchant_greeting", "merchant_menu", "merchant_armor_purchased",
-                                   "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell" };
+                                   "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell",
+                                   "armor_absorbed_damage" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
