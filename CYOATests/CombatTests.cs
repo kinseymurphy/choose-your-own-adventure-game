@@ -93,6 +93,36 @@ public class CombatTests
     }
 
     [TestMethod]
+    public void Combat_Constructor_StoresGoblinAsMonster()
+    {
+        Player player = new Player();
+        Goblin goblin = new Goblin(new Die());
+
+        Combat combat = new Combat(player, goblin, CreateEnglishMessages());
+
+        Assert.AreSame(goblin, combat.monster);
+    }
+
+    [TestMethod]
+    public void GetCombatStatsDisplay_WithGoblin_ShowsGrubnikHeaderAndStats()
+    {
+        Player player = CreateTestPlayer();
+        Goblin goblin = new Goblin(new Die()) { Strength = 7, Agility = 5, HealthPoints = 9 };
+        Messages messages = CreateEnglishMessages();
+
+        Combat combat = new Combat(player, goblin, messages);
+
+        string result = combat.GetCombatStatsDisplay();
+
+        StringAssert.Contains(result, "--- Grubnik ---");
+        StringAssert.Contains(result, messages.GetMessage("stats_strength") + "7");
+        StringAssert.Contains(result, messages.GetMessage("stats_agility") + "5");
+        StringAssert.Contains(result, messages.GetMessage("stats_health") + "9");
+        StringAssert.Contains(result, messages.GetMessage("stats_weapon") + "rusty axe");
+        StringAssert.Contains(result, messages.GetMessage("stats_damage") + "6");
+    }
+
+    [TestMethod]
     public void GetCombatStatsDisplay_MonsterHeaderShowsMonsterName()
     {
         Player player = CreateTestPlayer();

@@ -1,9 +1,9 @@
 # ADR 0002: Share combat between Monsters through a Monster base class
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-13
 - **Deciders:** Kinsey Murphy
-- **Branch / commit:** `feature/goblin-encounter` / not yet implemented
+- **Branch / commit:** `feature/goblin-encounter` / `919bac8` (Monster base class), used by Grubnik in `e4832ed` and later
 
 ## Context
 
@@ -58,3 +58,8 @@ damage replies, and `DisplayStats`. `Dragon` and the new `Goblin` both inherit f
 - Existing combat quirks are now shared by every Monster: the mid-combat retreat skips the
   ending, and the first round runs before the player is prompted. Fixing them stays out of
   scope.
+
+## Verification
+
+- `dotnet test CYOATests`: 197 passed, 0 failed. The suite was 138 before the change. All existing dragon and combat tests still pass, with only the `combat.dragon` → `combat.monster` and key renames.
+- Scripted playthroughs: North (dragon text unchanged apart from the `--- Smolderfang ---` combat header), West to a goblin ending in English and Spanish, and South shopping followed by West, with Protection absorbing Grubnik's hits and the Magical Weapon's damage applied.

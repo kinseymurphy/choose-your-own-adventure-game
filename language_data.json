@@ -85,6 +85,18 @@
       "dragon_damage_reply_2": "Impressive! You might actually be worth toasting...",
       "dragon_damage_reply_3": "That... was unexpected. But I assure you, it won't happen again.",
       "dragon_damage_reply_4": "Well, I'll be! You have more bite than I thought!",
+      "goblin_player_attack_intro": "As a {0}, you withdraw your {1} and attack the goblin, who squeaks in a very un-terrifying way.",
+      "goblin_defeated_narrative": "Grubnik wails 'Not the face! NOT THE FACE!' and topples backwards into the mud with a wet SPLAT. You have defeated the goblin.",
+      "goblin_defense_taunt_1": "Ha! Missed! My nan swings harder than that, and she's a mushroom!",
+      "goblin_defense_taunt_2": "Is that how they fight where you come from, {0}? Pathetic! Also, your boots are ugly.",
+      "goblin_defense_taunt_3": "Too slow! I've been dodging angry frogs since I was a tadpole! ...Since I was a baby. Shut up.",
+      "goblin_defense_taunt_4": "Oi, watch it! This is a VERY expensive swamp!",
+      "goblin_damage_reply_1": "OW! Right, that's it, you're paying DOUBLE toll now!",
+      "goblin_damage_reply_2": "Hey! I bruise easily! ...I mean, I don't bruise at all. Because I'm terrifying.",
+      "goblin_damage_reply_3": "That's going in my book of grudges. Page four hundred and twelve!",
+      "goblin_damage_reply_4": "You'll pay for that! Not today, obviously. But some day. Probably.",
+      "goblin_victory": "With Grubnik sobbing in the mud, you search his legendary treasure chest. Inside you find three buttons and a soggy sock. Grubnik insists it's a very valuable sock. You return home no richer, but with an excellent story. The End.",
+      "goblin_defeat": "Your vision blurs as Grubnik does a little victory dance on your chest. He takes your boots, your gold and, for some reason, your left sock. You will never live this down. The End.",
       "enter_choice": "Enter choice: "
     },
     "raceMap": {
@@ -120,7 +132,8 @@
       "magical long sword": "magical long sword",
       "magical lightning bolt spell": "magical lightning bolt spell",
       "magical dagger": "magical dagger",
-      "magical long bow": "magical long bow"
+      "magical long bow": "magical long bow",
+      "rusty axe": "rusty axe"
     }
   },
   "Spanish": {
@@ -209,6 +222,18 @@
       "dragon_damage_reply_2": "Impresionante! Tal vez realmente valga la pena tostarte...",
       "dragon_damage_reply_3": "Eso... fue inesperado. Pero te aseguro que no volvera a pasar.",
       "dragon_damage_reply_4": "Vaya! Tienes mas fuerza de la que pensaba!",
+      "goblin_player_attack_intro": "Como {0}, sacas tu {1} y atacas al goblin, que chilla de una forma nada aterradora.",
+      "goblin_defeated_narrative": "Grubnik grita 'En la cara no! EN LA CARA NO!' y cae de espaldas al barro con un CHOF humedo. Has derrotado al goblin.",
+      "goblin_defense_taunt_1": "Ja! Fallaste! Mi abuela golpea mas fuerte, y es una seta!",
+      "goblin_defense_taunt_2": "Asi pelean de donde vienes, {0}? Patetico! Y tus botas son feas.",
+      "goblin_defense_taunt_3": "Muy lento! Llevo esquivando ranas furiosas desde que era renacuajo! ...Desde que era bebe. Callate.",
+      "goblin_defense_taunt_4": "Eh, cuidado! Este pantano es MUY caro!",
+      "goblin_damage_reply_1": "AY! Se acabo, ahora pagas peaje DOBLE!",
+      "goblin_damage_reply_2": "Oye! Me salen moretones facilmente! ...Digo, no me salen nunca. Porque soy aterrador.",
+      "goblin_damage_reply_3": "Eso va directo a mi libro de rencores. Pagina cuatrocientos doce!",
+      "goblin_damage_reply_4": "Me las pagaras! Hoy no, claro. Pero algun dia. Probablemente.",
+      "goblin_victory": "Con Grubnik sollozando en el barro, registras su legendario cofre del tesoro. Dentro encuentras tres botones y un calcetin empapado. Grubnik insiste en que es un calcetin muy valioso. Vuelves a casa sin un centavo mas, pero con una historia excelente. Fin.",
+      "goblin_defeat": "Tu vista se nubla mientras Grubnik baila un bailecito de victoria sobre tu pecho. Se lleva tus botas, tu oro y, por alguna razon, tu calcetin izquierdo. Nunca superaras esta verguenza. Fin.",
       "enter_choice": "Escribe tu opcion: "
     },
     "raceMap": {
@@ -244,7 +269,8 @@
       "magical long sword": "espada larga magica",
       "magical lightning bolt spell": "hechizo de rayo magico",
       "magical dagger": "daga magica",
-      "magical long bow": "arco largo magico"
+      "magical long bow": "arco largo magico",
+      "rusty axe": "hacha oxidada"
     }
   },
   "French": {
@@ -333,6 +359,18 @@
       "dragon_damage_reply_2": "Impressionnant! Tu vaux peut-etre vraiment la peine d'etre grille...",
       "dragon_damage_reply_3": "C'etait... inattendu. Mais je t'assure que cela ne se reproduira pas.",
       "dragon_damage_reply_4": "Eh bien! Tu as plus de mordant que je ne le pensais!",
+      "goblin_player_attack_intro": "En tant que {0}, vous sortez votre {1} et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.",
+      "goblin_defeated_narrative": "Grubnik gemit 'Pas le visage ! PAS LE VISAGE !' et bascule en arriere dans la boue avec un gros SPLOTCH. Vous avez vaincu le gobelin.",
+      "goblin_defense_taunt_1": "Ha ! Rate ! Ma grand-mere frappe plus fort que ca, et c'est un champignon !",
+      "goblin_defense_taunt_2": "C'est comme ca qu'on se bat chez toi, {0} ? Pathetique ! Et tes bottes sont moches.",
+      "goblin_defense_taunt_3": "Trop lent ! J'esquive des grenouilles en colere depuis que je suis tetard ! ...Depuis que je suis bebe. Tais-toi.",
+      "goblin_defense_taunt_4": "Oh, attention ! C'est un marais TRES cher !",
+      "goblin_damage_reply_1": "AIE ! Ca suffit, tu paies le DOUBLE du peage maintenant !",
+      "goblin_damage_reply_2": "Eh ! J'ai des bleus facilement ! ...Enfin, je n'ai jamais de bleus. Parce que je suis terrifiant.",
+      "goblin_damage_reply_3": "Ca va dans mon livre des rancunes. Page quatre cent douze !",
+      "goblin_damage_reply_4": "Tu vas me le payer ! Pas aujourd'hui, evidemment. Mais un jour. Probablement.",
+      "goblin_victory": "Pendant que Grubnik sanglote dans la boue, vous fouillez son legendaire coffre au tresor. Dedans, vous trouvez trois boutons et une chaussette trempee. Grubnik insiste : c'est une chaussette de tres grande valeur. Vous rentrez chez vous pas plus riche, mais avec une excellente histoire. Fin.",
+      "goblin_defeat": "Votre vue se brouille pendant que Grubnik fait une petite danse de la victoire sur votre poitrine. Il prend vos bottes, votre or et, on ne sait pourquoi, votre chaussette gauche. Vous ne vous en remettrez jamais. Fin.",
       "enter_choice": "Entrez votre choix : "
     },
     "raceMap": {
@@ -368,7 +406,8 @@
       "magical long sword": "epee longue magique",
       "magical lightning bolt spell": "sort d'eclair magique",
       "magical dagger": "dague magique",
-      "magical long bow": "arc long magique"
+      "magical long bow": "arc long magique",
+      "rusty axe": "hache rouillee"
     }
   },
   "Italian": {
@@ -457,6 +496,18 @@
       "dragon_damage_reply_2": "Notevole! Forse vale davvero la pena arrostirti...",
       "dragon_damage_reply_3": "Questo... era inaspettato. Ma ti assicuro che non succedera di nuovo.",
       "dragon_damage_reply_4": "Ma guarda! Hai piu grinta di quanto pensassi!",
+      "goblin_player_attack_intro": "Come {0}, estrai il tuo {1} e attacchi il goblin, che squittisce in modo per niente terrificante.",
+      "goblin_defeated_narrative": "Grubnik strilla 'Non la faccia! NON LA FACCIA!' e cade all'indietro nel fango con uno SPLASH bagnato. Hai sconfitto il goblin.",
+      "goblin_defense_taunt_1": "Ah! Mancato! Mia nonna colpisce piu forte, ed e un fungo!",
+      "goblin_defense_taunt_2": "E cosi che si combatte da dove vieni, {0}? Patetico! E i tuoi stivali sono brutti.",
+      "goblin_defense_taunt_3": "Troppo lento! Schivo rane arrabbiate da quando ero un girino! ...Da quando ero piccolo. Zitto.",
+      "goblin_defense_taunt_4": "Ehi, attento! Questa e una palude MOLTO costosa!",
+      "goblin_damage_reply_1": "AHIA! Basta, adesso paghi il pedaggio DOPPIO!",
+      "goblin_damage_reply_2": "Ehi! Mi vengono i lividi facilmente! ...Cioe, non mi vengono mai. Perche sono terrificante.",
+      "goblin_damage_reply_3": "Questa finisce nel mio libro dei rancori. Pagina quattrocentododici!",
+      "goblin_damage_reply_4": "Me la pagherai! Non oggi, ovviamente. Ma un giorno. Probabilmente.",
+      "goblin_victory": "Mentre Grubnik singhiozza nel fango, frughi nel suo leggendario forziere del tesoro. Dentro trovi tre bottoni e un calzino fradicio. Grubnik insiste che e un calzino molto prezioso. Torni a casa non piu ricco, ma con una storia fantastica. Fine.",
+      "goblin_defeat": "La tua vista si annebbia mentre Grubnik fa un balletto della vittoria sul tuo petto. Si prende i tuoi stivali, il tuo oro e, chissa perche, il tuo calzino sinistro. Non te lo perdonerai mai. Fine.",
       "enter_choice": "Inserisci la tua scelta: "
     },
     "raceMap": {
@@ -492,7 +543,8 @@
       "magical long sword": "spada lunga magica",
       "magical lightning bolt spell": "incantesimo del fulmine magico",
       "magical dagger": "pugnale magico",
-      "magical long bow": "arco lungo magico"
+      "magical long bow": "arco lungo magico",
+      "rusty axe": "ascia arrugginita"
     }
   }
 }

@@ -15,7 +15,12 @@ public class MessagesTests
                                    "combat_monster_header",
                                    "path_prompt_full", "path_invalid", "west_path_narrative",
                                    "goblin_intro", "goblin_stats_intro", "goblin_stats_header",
-                                   "goblin_encounter_prompt" };
+                                   "goblin_encounter_prompt", "goblin_player_attack_intro",
+                                   "goblin_defeated_narrative", "goblin_victory", "goblin_defeat",
+                                   "goblin_defense_taunt_1", "goblin_defense_taunt_2",
+                                   "goblin_defense_taunt_3", "goblin_defense_taunt_4",
+                                   "goblin_damage_reply_1", "goblin_damage_reply_2",
+                                   "goblin_damage_reply_3", "goblin_damage_reply_4" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
@@ -232,6 +237,10 @@ public class MessagesTests
     [DataRow("Italian", "magical lightning bolt spell", "incantesimo del fulmine magico")]
     [DataRow("Italian", "magical dagger", "pugnale magico")]
     [DataRow("Italian", "magical long bow", "arco lungo magico")]
+    [DataRow("English", "rusty axe", "rusty axe")]
+    [DataRow("Spanish", "rusty axe", "hacha oxidada")]
+    [DataRow("French", "rusty axe", "hache rouillee")]
+    [DataRow("Italian", "rusty axe", "ascia arrugginita")]
     public void TranslateWeaponForDisplay_TranslatesMagicalWeapon(string language, string weaponType, string expected)
     {
         Messages messages = new Messages();

@@ -206,6 +206,18 @@ public class Game
             Console.Write(messages.GetMessage("enter_choice"));
             string? input = Console.ReadLine()?.Trim().ToLower();
 
+            if (input == "a" || input == "attack")
+            {
+                Combat combat = new Combat(player, goblin, messages);
+                bool playerWon = combat.StartCombat();
+
+                // Combat already showed its own retreat message
+                if (!combat.PlayerRetreated)
+                    EndGame(goblin, playerWon, false, messages);
+
+                return;
+            }
+
             if (input == "r" || input == "retreat")
             {
                 Console.WriteLine(messages.GetMessage("retreat"));
