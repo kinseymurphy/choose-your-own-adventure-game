@@ -1,9 +1,9 @@
 # ADR 0003: Store Profiles locally in one JSON file
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-13
 - **Deciders:** Kinsey Murphy
-- **Branch / commit:** not implemented yet. Spec: `.scratch/player-profiles/spec.md`
+- **Branch / commit:** `feature/player-profiles`, commit "Save characters as Player Profiles between Sessions". Spec: `.scratch/player-profiles/spec.md`
 
 ## Context
 
@@ -75,7 +75,13 @@ Until now the game never wrote a file. It only reads `language_data.json` from t
 
 ## Verification
 
-Not implemented yet. Once implemented, record:
+Verified on 2026-11-13.
 
-- The `dotnet test CYOATests` results.
-- The manual playthrough from the spec: create, shop, restart and reload; a Dead End followed by restart with full Health Points; and the menu in a second language.
+- **`dotnet test CYOATests`:** 246 passed, 0 failed. The feature added 49 tests: 26 in `ProfileStoreTests` and 19 in `ProfileGameTests`, with the rest in `MessagesTests`. The scripted `ProfileGameTests` passed 8 runs in a row, which checks that the dice-dependent combat tests aren't flaky.
+- **Health Points rule:** a temporary save was planted after the Dead Ends as a check. The defeat, wounded-victory and retreat tests all failed against it, then the save was removed.
+- **Scripted playthroughs of the real program:** these used the real `%LOCALAPPDATA%\ChooseYourAdventure` folder, which didn't exist beforehand and was deleted afterwards.
+  1. A character was created and Magical Armor bought with all 8 Gold. After a restart, the game welcomed the character back with Gold 0 and Protection 3.
+  2. After a North Dead End and a restart, the Profile was still listed with its rolled Health Points (19).
+  3. `" KIRA "` was refused for a new Profile because `Kira` already existed.
+  4. In Spanish, the menu showed `1. Kira (Humano Guerrero)`, `2. Lio (Elfo Arquero)` and `3. Nuevo perfil`, and picking a Profile showed the Spanish welcome back.
+  5. A hand-damaged `profiles.json` was moved to `profiles.unreadable.json` with its contents intact. The warning named that file, and character creation started.

@@ -20,7 +20,11 @@ public class MessagesTests
                                    "goblin_defense_taunt_1", "goblin_defense_taunt_2",
                                    "goblin_defense_taunt_3", "goblin_defense_taunt_4",
                                    "goblin_damage_reply_1", "goblin_damage_reply_2",
-                                   "goblin_damage_reply_3", "goblin_damage_reply_4" };
+                                   "goblin_damage_reply_3", "goblin_damage_reply_4",
+                                   "profile_menu_header", "profile_menu_entry", "profile_new_option",
+                                   "profile_welcome_back", "profile_name_taken",
+                                   "profile_file_unreadable", "profile_file_unreadable_not_moved",
+                                   "profile_save_failed" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
@@ -248,6 +252,29 @@ public class MessagesTests
         messages.ReadDictionary();
 
         Assert.AreEqual(expected, messages.TranslateWeaponForDisplay(weaponType));
+    }
+
+    [TestMethod]
+    [DataRow("English")]
+    [DataRow("Spanish")]
+    [DataRow("French")]
+    [DataRow("Italian")]
+    public void ProfileMessages_FillInTheirPlaceholders(string language)
+    {
+        Messages messages = new Messages();
+        messages.SetCurrentLanguage(language);
+        messages.ReadDictionary();
+
+        string entry = string.Format(messages.GetMessage("profile_menu_entry"), 7, "Bob", "RaceX", "JobX");
+        StringAssert.Contains(entry, "7");
+        StringAssert.Contains(entry, "Bob");
+        StringAssert.Contains(entry, "RaceX");
+        StringAssert.Contains(entry, "JobX");
+
+        StringAssert.Contains(string.Format(messages.GetMessage("profile_welcome_back"), "Bob"), "Bob");
+        StringAssert.Contains(
+            string.Format(messages.GetMessage("profile_file_unreadable"), "profiles.unreadable-2.json"),
+            "profiles.unreadable-2.json");
     }
 
     [TestMethod]

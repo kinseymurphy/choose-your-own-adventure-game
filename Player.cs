@@ -14,10 +14,11 @@ public class Player
 
     public Weapon? Weapon { get; set; }
 
-    public void CreateCharacter(Messages messages)
+    // isNameTaken lets the caller refuse names that already belong to another Profile
+    public void CreateCharacter(Messages messages, Func<string, bool>? isNameTaken = null)
     {
         Race = PromptForRace(messages);
-        Name = PromptForName(messages);
+        Name = PromptForName(messages, isNameTaken);
         Occupation = PromptForOccupation(messages);
 
         AssignWeaponByOccupation();
@@ -44,17 +45,19 @@ public class Player
         }
     }
 
-    private string PromptForName(Messages messages)
+    private string PromptForName(Messages messages, Func<string, bool>? isNameTaken)
     {
         while (true)
         {
             Console.WriteLine(messages.GetMessage("name_prompt"));
             string? input = Console.ReadLine()?.Trim();
 
-            if (!string.IsNullOrWhiteSpace(input))
+            if (string.IsNullOrWhiteSpace(input))
+                Console.WriteLine(messages.GetMessage("name_invalid"));
+            else if (isNameTaken != null && isNameTaken(input))
+                Console.WriteLine(messages.GetMessage("profile_name_taken"));
+            else
                 return input;
-
-            Console.WriteLine(messages.GetMessage("name_invalid"));
         }
     }
 
