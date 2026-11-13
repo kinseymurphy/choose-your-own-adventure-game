@@ -8,7 +8,7 @@ public class MessagesTests
                                    "roll_gold", "stats_gold", "stats_protection",
                                    "merchant_greeting", "merchant_menu", "merchant_armor_purchased",
                                    "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell",
-                                   "armor_absorbed_damage" };
+                                   "armor_absorbed_damage", "merchant_weapon_purchased" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
@@ -191,6 +191,32 @@ public class MessagesTests
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from Italian dictionary.");
         }
+    }
+
+    [TestMethod]
+    [DataRow("English", "magical long sword", "magical long sword")]
+    [DataRow("English", "magical lightning bolt spell", "magical lightning bolt spell")]
+    [DataRow("English", "magical dagger", "magical dagger")]
+    [DataRow("English", "magical long bow", "magical long bow")]
+    [DataRow("Spanish", "magical long sword", "espada larga magica")]
+    [DataRow("Spanish", "magical lightning bolt spell", "hechizo de rayo magico")]
+    [DataRow("Spanish", "magical dagger", "daga magica")]
+    [DataRow("Spanish", "magical long bow", "arco largo magico")]
+    [DataRow("French", "magical long sword", "epee longue magique")]
+    [DataRow("French", "magical lightning bolt spell", "sort d'eclair magique")]
+    [DataRow("French", "magical dagger", "dague magique")]
+    [DataRow("French", "magical long bow", "arc long magique")]
+    [DataRow("Italian", "magical long sword", "spada lunga magica")]
+    [DataRow("Italian", "magical lightning bolt spell", "incantesimo del fulmine magico")]
+    [DataRow("Italian", "magical dagger", "pugnale magico")]
+    [DataRow("Italian", "magical long bow", "arco lungo magico")]
+    public void TranslateWeaponForDisplay_TranslatesMagicalWeapon(string language, string weaponType, string expected)
+    {
+        Messages messages = new Messages();
+        messages.SetCurrentLanguage(language);
+        messages.ReadDictionary();
+
+        Assert.AreEqual(expected, messages.TranslateWeaponForDisplay(weaponType));
     }
 
     [TestMethod]

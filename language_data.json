@@ -69,6 +69,7 @@
       "player_defended_dragon_attack": "{0} successfully defends the attack.",
       "dragon_damage_dealt": "{0} deals {1} damage.",
       "armor_absorbed_damage": "Your Magical Armor absorbs {0} damage.",
+      "merchant_weapon_purchased": "The Merchant turns your weapon into a Magical Weapon. You now wield a {0} with {1} Maximum Damage Points.",
       "player_health_now": "{0}'s health points are now {1}.",
       "player_defeated_narrative": "{0} has been defeated.",
       "dragon_defense_taunt_1": "Missed me, breath of a gnat!",
@@ -110,7 +111,11 @@
       "lightning bolt spell": "lightning bolt spell",
       "dagger": "dagger",
       "long bow": "long bow",
-      "claws": "claws"
+      "claws": "claws",
+      "magical long sword": "magical long sword",
+      "magical lightning bolt spell": "magical lightning bolt spell",
+      "magical dagger": "magical dagger",
+      "magical long bow": "magical long bow"
     }
   },
   "Spanish": {
@@ -183,6 +188,7 @@
       "player_defended_dragon_attack": "{0} defendio exitosamente el ataque.",
       "dragon_damage_dealt": "{0} hace {1} de dano.",
       "armor_absorbed_damage": "Tu Armadura Magica absorbe {0} de dano.",
+      "merchant_weapon_purchased": "El Mercader convierte tu arma en un Arma Magica ({0}). Sus Puntos Maximos de Dano ahora son {1}.",
       "player_health_now": "Los puntos de vida de {0} ahora son {1}.",
       "player_defeated_narrative": "{0} ha sido derrotado.",
       "dragon_defense_taunt_1": "Ni me tocaste, aliento de mosquito!",
@@ -224,7 +230,11 @@
       "lightning bolt spell": "hechizo de rayo",
       "dagger": "daga",
       "long bow": "arco largo",
-      "claws": "garras"
+      "claws": "garras",
+      "magical long sword": "espada larga magica",
+      "magical lightning bolt spell": "hechizo de rayo magico",
+      "magical dagger": "daga magica",
+      "magical long bow": "arco largo magico"
     }
   },
   "French": {
@@ -297,6 +307,7 @@
       "player_defended_dragon_attack": "{0} defend avec succes l'attaque.",
       "dragon_damage_dealt": "{0} inflige {1} degats.",
       "armor_absorbed_damage": "Votre Armure Magique absorbe {0} degats.",
+      "merchant_weapon_purchased": "Le Marchand transforme votre arme en Arme Magique ({0}). Ses Points de Dommages Maximum sont maintenant de {1}.",
       "player_health_now": "Les points de vie de {0} sont maintenant de {1}.",
       "player_defeated_narrative": "{0} a ete vaincu.",
       "dragon_defense_taunt_1": "Tu m'as rate, souffle de moucheron!",
@@ -338,7 +349,11 @@
       "lightning bolt spell": "sort d'eclair",
       "dagger": "dague",
       "long bow": "arc long",
-      "claws": "griffes"
+      "claws": "griffes",
+      "magical long sword": "epee longue magique",
+      "magical lightning bolt spell": "sort d'eclair magique",
+      "magical dagger": "dague magique",
+      "magical long bow": "arc long magique"
     }
   },
   "Italian": {
@@ -411,6 +426,7 @@
       "player_defended_dragon_attack": "{0} para con successo l'attacco.",
       "dragon_damage_dealt": "{0} infligge {1} danni.",
       "armor_absorbed_damage": "La tua Armatura Magica assorbe {0} danni.",
+      "merchant_weapon_purchased": "Il Mercante trasforma la tua arma in un'Arma Magica ({0}). Il suo Danno Massimo ora e {1}.",
       "player_health_now": "I punti vita di {0} ora sono {1}.",
       "player_defeated_narrative": "{0} e stato sconfitto.",
       "dragon_defense_taunt_1": "Mancato, alito di moscerino!",
@@ -452,7 +468,11 @@
       "lightning bolt spell": "incantesimo del fulmine",
       "dagger": "pugnale",
       "long bow": "arco lungo",
-      "claws": "artigli"
+      "claws": "artigli",
+      "magical long sword": "spada lunga magica",
+      "magical lightning bolt spell": "incantesimo del fulmine magico",
+      "magical dagger": "pugnale magico",
+      "magical long bow": "arco lungo magico"
     }
   }
 }
