@@ -14,6 +14,7 @@ public class PlayerTests
         Assert.AreEqual(0, player.Agility);
         Assert.AreEqual(0, player.HealthPoints);
         Assert.AreEqual(0, player.Gold);
+        Assert.AreEqual(0, player.Protection);
 
         Assert.IsNull(player.Weapon);
     }

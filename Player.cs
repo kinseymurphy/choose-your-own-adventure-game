@@ -10,6 +10,7 @@ public class Player
     public int Agility { get; set; }
     public int HealthPoints { get; set; }
     public int Gold { get; set; }
+    public int Protection { get; set; }
 
     public Weapon? Weapon { get; set; }
 
@@ -150,16 +151,29 @@ public class Player
         Console.WriteLine(messages.GetMessage("stats_name") + Name);
         Console.WriteLine(messages.GetMessage("stats_race") + messages.TranslateRaceForDisplay(Race));
         Console.WriteLine(messages.GetMessage("stats_occupation") + messages.TranslateOccupationForDisplay(Occupation));
-        Console.WriteLine(messages.GetMessage("stats_strength") + Strength);
-        Console.WriteLine(messages.GetMessage("stats_agility") + Agility);
-        Console.WriteLine(messages.GetMessage("stats_health") + HealthPoints);
-        Console.WriteLine(messages.GetMessage("stats_gold") + Gold);
+
+        foreach (string line in GetCombatStatLines(messages))
+            Console.WriteLine(line);
+    }
+
+    // Shared by the character stats screen and the combat stats screen
+    public List<string> GetCombatStatLines(Messages messages)
+    {
+        var lines = new List<string>();
+
+        lines.Add(messages.GetMessage("stats_strength") + Strength);
+        lines.Add(messages.GetMessage("stats_agility") + Agility);
+        lines.Add(messages.GetMessage("stats_health") + HealthPoints);
+        lines.Add(messages.GetMessage("stats_gold") + Gold);
+        lines.Add(messages.GetMessage("stats_protection") + Protection);
 
         if (Weapon != null)
         {
-            Console.WriteLine(messages.GetMessage("stats_weapon") + messages.TranslateWeaponForDisplay(Weapon.Type));
-            Console.WriteLine(messages.GetMessage("stats_damage") + Weapon.MaxDamage);
+            lines.Add(messages.GetMessage("stats_weapon") + messages.TranslateWeaponForDisplay(Weapon.Type));
+            lines.Add(messages.GetMessage("stats_damage") + Weapon.MaxDamage);
         }
+
+        return lines;
     }
 
     public int RollAttack()

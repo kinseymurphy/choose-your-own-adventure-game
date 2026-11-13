@@ -2,6 +2,13 @@
 [TestClass]
 public class MessagesTests
 {
+    private static readonly string[] RequiredKeys = { "welcome", "menu",
+                                   "choose_path", "path_north", "path_south", "attack_prompt",
+                                   "victory", "defeat", "retreat", "invalid", "goodbye",
+                                   "roll_gold", "stats_gold", "stats_protection",
+                                   "merchant_greeting", "merchant_menu", "merchant_armor_purchased",
+                                   "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell" };
+
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
     {
@@ -136,12 +143,7 @@ public class MessagesTests
         messages.SetCurrentLanguage("English");
         messages.ReadDictionary();
 
-        string[] requiredKeys = { "welcome", "menu",
-                                   "choose_path", "path_north", "path_south", "attack_prompt",
-                                   "victory", "defeat", "retreat", "invalid", "goodbye",
-                                   "roll_gold", "stats_gold" };
-
-        foreach (string key in requiredKeys)
+        foreach (string key in RequiredKeys)
         {
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from English dictionary.");
@@ -155,12 +157,7 @@ public class MessagesTests
         messages.SetCurrentLanguage("Spanish");
         messages.ReadDictionary();
 
-        string[] requiredKeys = { "welcome", "menu",
-                                   "choose_path", "path_north", "path_south", "attack_prompt",
-                                   "victory", "defeat", "retreat", "invalid", "goodbye",
-                                   "roll_gold", "stats_gold" };
-
-        foreach (string key in requiredKeys)
+        foreach (string key in RequiredKeys)
         {
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from Spanish dictionary.");
@@ -174,12 +171,7 @@ public class MessagesTests
         messages.SetCurrentLanguage("French");
         messages.ReadDictionary();
 
-        string[] requiredKeys = { "welcome", "menu",
-                                   "choose_path", "path_north", "path_south", "attack_prompt",
-                                   "victory", "defeat", "retreat", "invalid", "goodbye",
-                                   "roll_gold", "stats_gold" };
-
-        foreach (string key in requiredKeys)
+        foreach (string key in RequiredKeys)
         {
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from French dictionary.");
@@ -193,12 +185,7 @@ public class MessagesTests
         messages.SetCurrentLanguage("Italian");
         messages.ReadDictionary();
 
-        string[] requiredKeys = { "welcome", "menu",
-                                   "choose_path", "path_north", "path_south", "attack_prompt",
-                                   "victory", "defeat", "retreat", "invalid", "goodbye",
-                                   "roll_gold", "stats_gold" };
-
-        foreach (string key in requiredKeys)
+        foreach (string key in RequiredKeys)
         {
             string result = messages.GetMessage(key);
             Assert.AreNotEqual($"[{key}]", result, $"Key '{key}' is missing from Italian dictionary.");
