@@ -74,7 +74,63 @@ public class Combat
 
     public void PlayerAttacksMonsterSequence()
     {
-        Console.WriteLine(player.Attack(monster, messages));
+        if (player.Weapon == null)
+        {
+            Console.WriteLine("You have no weapon to attack with.");
+            return;
+        }
+
+        var output = new List<string>();
+
+        output.Add(string.Format(
+            messages.GetMessage(monster.PlayerAttackIntroKey),
+            messages.TranslateOccupationForDisplay(player.Occupation),
+            messages.TranslateWeaponForDisplay(player.Weapon.Type)
+        ));
+
+        output.Add(player.Weapon.AsciiArt);
+
+        // Monsters have no Protection
+        AttackResult attack = ResolveAttack(player.Strength, monster.Agility, player.Weapon.MaxDamage, 0);
+
+        if (!attack.Hit)
+        {
+            output.Add(string.Format(messages.GetMessage("player_missed_monster"), monster.Name));
+            Console.WriteLine(string.Join(Environment.NewLine, output));
+            return;
+        }
+
+        output.Add(string.Format(messages.GetMessage("player_hit_monster"), monster.Name));
+
+        if (attack.Blocked)
+        {
+            output.Add(string.Format(messages.GetMessage("monster_defended_player_attack"), monster.Name));
+            output.Add(string.Format(
+                messages.GetMessage(PickKey(monster.DefenseTauntKeys)),
+                messages.TranslateRaceForDisplay(player.Race)
+            ));
+            Console.WriteLine(string.Join(Environment.NewLine, output));
+            return;
+        }
+
+        // The Monster's Health Points aren't stopped at 0 (ticket 06 records this)
+        monster.HealthPoints -= attack.Damage;
+
+        output.Add(string.Format(messages.GetMessage("player_damage_dealt"), attack.Damage));
+        output.Add(string.Format(messages.GetMessage("monster_health_now"), monster.Name, monster.HealthPoints));
+
+        if (monster.HealthPoints <= 0)
+            output.Add(messages.GetMessage(monster.DefeatedNarrativeKey));
+        else
+            output.Add(messages.GetMessage(PickKey(monster.DamageReplyKeys)));
+
+        Console.WriteLine(string.Join(Environment.NewLine, output));
+    }
+
+    // Picks one of a Monster's taunts or damage replies with a roll of the die
+    private string PickKey(IReadOnlyList<string> keys)
+    {
+        return keys[_die.Roll(keys.Count) - 1];
     }
 
     public void MonsterAttacksPlayerSequence()

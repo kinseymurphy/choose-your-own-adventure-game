@@ -75,68 +75,6 @@ public class GoblinTests
         return new Goblin(new Die()) { Agility = agility, HealthPoints = healthPoints };
     }
 
-    [TestMethod]
-    [DataRow("English")]
-    [DataRow("Spanish")]
-    [DataRow("French")]
-    [DataRow("Italian")]
-    public void PlayerAttack_OnGoblin_UsesGoblinAttackIntro(string language)
-    {
-        Messages messages = GetMessages(language);
-        Player player = CreateTestPlayer();
-
-        string output = player.Attack(CreateGoblin(agility: 20, healthPoints: 10), messages);
-
-        AssertNoMissingGoblinKeys(output);
-        StringAssert.Contains(output, string.Format(
-            messages.GetMessage("goblin_player_attack_intro"),
-            messages.TranslateOccupationForDisplay(player.Occupation),
-            messages.TranslateWeaponForDisplay(player.Weapon!.Type)));
-    }
-
-    [TestMethod]
-    [DataRow("English")]
-    [DataRow("Spanish")]
-    [DataRow("French")]
-    [DataRow("Italian")]
-    public void PlayerAttack_BlockedByGoblin_ShowsGoblinTaunt(string language)
-    {
-        Messages messages = GetMessages(language);
-
-        string output = CreateTestPlayer().Attack(CreateGoblin(agility: 20, healthPoints: 10), messages);
-
-        AssertNoMissingGoblinKeys(output);
-    }
-
-    [TestMethod]
-    [DataRow("English")]
-    [DataRow("Spanish")]
-    [DataRow("French")]
-    [DataRow("Italian")]
-    public void PlayerAttack_HurtsGoblin_ShowsGoblinDamageReply(string language)
-    {
-        Messages messages = GetMessages(language);
-
-        string output = CreateTestPlayer().Attack(CreateGoblin(agility: 0, healthPoints: 1000), messages);
-
-        AssertNoMissingGoblinKeys(output);
-    }
-
-    [TestMethod]
-    [DataRow("English")]
-    [DataRow("Spanish")]
-    [DataRow("French")]
-    [DataRow("Italian")]
-    public void PlayerAttack_DefeatsGoblin_ShowsGoblinDefeatedNarrative(string language)
-    {
-        Messages messages = GetMessages(language);
-
-        string output = CreateTestPlayer().Attack(CreateGoblin(agility: 0, healthPoints: 1), messages);
-
-        AssertNoMissingGoblinKeys(output);
-        StringAssert.Contains(output, messages.GetMessage("goblin_defeated_narrative"));
-    }
-
     private string CaptureEndGame(Monster monster, bool playerWon, bool playerRetreated, Messages messages)
     {
         using StringWriter writer = new StringWriter();
@@ -193,46 +131,6 @@ public class GoblinTests
         string output = CaptureEndGame(new Goblin(new Die()), false, true, messages);
 
         StringAssert.Contains(output, messages.GetMessage("retreat"));
-    }
-
-    [TestMethod]
-    public void GetRandomDefenseTaunt_ReturnsGoblinTaunt()
-    {
-        Goblin goblin = new Goblin(new Die());
-        Messages messages = GetMessages();
-
-        string taunt = goblin.GetRandomDefenseTaunt(messages);
-
-        string[] validTaunts =
-        {
-            messages.GetMessage("goblin_defense_taunt_1"),
-            messages.GetMessage("goblin_defense_taunt_2"),
-            messages.GetMessage("goblin_defense_taunt_3"),
-            messages.GetMessage("goblin_defense_taunt_4")
-        };
-
-        AssertNoMissingGoblinKeys(taunt);
-        CollectionAssert.Contains(validTaunts, taunt);
-    }
-
-    [TestMethod]
-    public void GetRandomDamageReply_ReturnsGoblinReply()
-    {
-        Goblin goblin = new Goblin(new Die());
-        Messages messages = GetMessages();
-
-        string reply = goblin.GetRandomDamageReply(messages);
-
-        string[] validReplies =
-        {
-            messages.GetMessage("goblin_damage_reply_1"),
-            messages.GetMessage("goblin_damage_reply_2"),
-            messages.GetMessage("goblin_damage_reply_3"),
-            messages.GetMessage("goblin_damage_reply_4")
-        };
-
-        AssertNoMissingGoblinKeys(reply);
-        CollectionAssert.Contains(validReplies, reply);
     }
 
     [TestMethod]

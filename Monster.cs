@@ -16,26 +16,14 @@ public abstract class Monster
     public abstract string DefeatedNarrativeKey { get; }
     public abstract string VictoryKey { get; }
     public abstract string DefeatKey { get; }
-    protected abstract IReadOnlyList<string> DefenseTauntKeys { get; }
-    protected abstract IReadOnlyList<string> DamageReplyKeys { get; }
+    public abstract IReadOnlyList<string> DefenseTauntKeys { get; }
+    public abstract IReadOnlyList<string> DamageReplyKeys { get; }
 
     protected Monster(IDie die, string name, Weapon weapon)
     {
         _die = die;
         Name = name;
         Weapon = weapon;
-    }
-
-    public string GetRandomDefenseTaunt(Messages messages)
-    {
-        int index = _die.Roll(DefenseTauntKeys.Count) - 1;
-        return messages.GetMessage(DefenseTauntKeys[index]);
-    }
-
-    public string GetRandomDamageReply(Messages messages)
-    {
-        int index = _die.Roll(DamageReplyKeys.Count) - 1;
-        return messages.GetMessage(DamageReplyKeys[index]);
     }
 
     public void DisplayStats(Messages messages)

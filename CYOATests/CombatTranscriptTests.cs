@@ -3,8 +3,6 @@
 // scripted input, must print exactly the approved transcripts in CombatTranscripts/.
 // The transcripts were produced from the combat code before it moved into Combat
 // and checked by hand. Never regenerate them to make a test pass.
-using System.Reflection;
-
 [TestClass]
 [DoNotParallelize]
 public class CombatTranscriptTests
@@ -139,7 +137,6 @@ public class CombatTranscriptTests
 
         ScriptedDie die = new ScriptedDie(fight.Rolls);
         Monster monster = fight.CreateMonster(die);
-        RollPlayerAttacksWith(fight.Player, die);
 
         Console.SetIn(new StringReader(fight.Input));
         using StringWriter writer = new StringWriter();
@@ -149,33 +146,6 @@ public class CombatTranscriptTests
 
         AssertMatchesApprovedTranscript($"{fightName}.{language.ToLower()}", writer.ToString());
         Assert.ThrowsException<AssertFailedException>(() => die.Roll(20), "Every scripted roll should be used.");
-    }
-
-    // TEMPORARY until ticket 04: the player's attack still rolls on Player's own private Die,
-    // which is outside the seam. Point that Die at the same scripted rolls, so the transcript
-    // scripts stay valid when the attack moves into Combat and this helper is deleted.
-    private static void RollPlayerAttacksWith(Player player, IDie die)
-    {
-        FieldInfo playerDie = typeof(Player).GetField("_die", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        FieldInfo random = typeof(Die).GetField("_random", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        random.SetValue(playerDie.GetValue(player), new ScriptedRandom(die));
-    }
-
-    private sealed class ScriptedRandom : Random
-    {
-        private readonly IDie _die;
-
-        public ScriptedRandom(IDie die)
-        {
-            _die = die;
-        }
-
-        // Die.Roll(sides) calls Next(1, sides + 1)
-        public override int Next(int minValue, int maxValue)
-        {
-            Assert.AreEqual(1, minValue, "Die always rolls from 1.");
-            return _die.Roll(maxValue - 1);
-        }
     }
 
     private static void AssertMatchesApprovedTranscript(string name, string actual)
