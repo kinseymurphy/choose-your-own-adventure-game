@@ -88,7 +88,8 @@ public class Combat
             messages.TranslateWeaponForDisplay(player.Weapon.Type)
         ));
 
-        output.Add(player.Weapon.AsciiArt);
+        if (!string.IsNullOrWhiteSpace(player.Weapon.AsciiArt))
+            output.Add(player.Weapon.AsciiArt);
 
         // Monsters have no Protection
         AttackResult attack = ResolveAttack(player.Strength, monster.Agility, player.Weapon.MaxDamage, 0);
@@ -113,8 +114,8 @@ public class Combat
             return;
         }
 
-        // The Monster's Health Points aren't stopped at 0 (ticket 06 records this)
-        monster.HealthPoints -= attack.Damage;
+        // The Monster's Health Points stop at 0, like the player's
+        monster.HealthPoints = Math.Max(0, monster.HealthPoints - attack.Damage);
 
         output.Add(string.Format(messages.GetMessage("player_damage_dealt"), attack.Damage));
         output.Add(string.Format(messages.GetMessage("monster_health_now"), monster.Name, monster.HealthPoints));
