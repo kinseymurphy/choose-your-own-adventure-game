@@ -1,9 +1,16 @@
 # ADR 0004: Resolve attacks in Combat behind a dice seam
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-13
 - **Deciders:** Kinsey Murphy
-- **Branch / commit:** `feature/combat-dice-seam`, not implemented yet. Spec: `.scratch/combat-dice-seam/spec.md`
+- **Branch / commit:** `feature/combat-dice-seam`:
+  - `3bc9c11` adds the dice seam;
+  - `0a83203` adds the transcripts;
+  - `daf8ada` moves the Monster's attack into `Combat`;
+  - `bb78801` moves the player's attack into `Combat`;
+  - the commit "Verify the combat dice seam end to end and accept ADR 0004" records the verification.
+
+  Spec: `.scratch/combat-dice-seam/spec.md`
 
 ## Context
 
@@ -76,8 +83,18 @@ The dice can't be controlled. `Die` wraps `new Random()`, and `Player` creates i
 
 ## Verification
 
-Not implemented yet. Once implemented, record:
+Verified on 2026-11-13.
 
-- The `dotnet test CYOATests` results, with the number of tests added, replaced and deleted.
-- That the four-language full-fight transcripts captured before the refactor still pass unchanged.
-- A scripted playthrough of a North and a West Dead End.
+- **`dotnet test CYOATests`:** 287 passed, 0 failed, no warnings. The suite was 246 before this work.
+  - 72 tests were added.
+  - 31 tests of the removed methods were deleted. Each was replaced by a test through `Combat` with scripted rolls, and the replacements are listed in tickets 03 and 04.
+- **Transcripts unchanged:**
+  - All 10 transcripts pass, with no edits since they were approved in ticket 02 (`git diff 0a83203 -- CYOATests/CombatTranscripts` is empty). They cover a dragon victory and a goblin defeat in English, Spanish, French and Italian, a mid-fight retreat and a Magical Weapon victory.
+  - They passed after each step: when the Monster's attack moved (ticket 03), and when the player's attack moved and the temporary reflection was deleted (ticket 04). Ticket 04 needed no change to the roll scripts.
+- **Language data unchanged:** `git diff feature/player-profiles -- language_data.json` is empty.
+- **Whole-game Dead Ends with scripted dice** (`GameDiceTests`, through `Game.StartGame` with Profile saving in a temporary folder):
+  - **North:** a saved Profile is wounded (30 to 24 Health Points), then defeats Smolderfang. The output ends with the dragon victory ending.
+  - **West:** Grubnik defeats a saved Profile. The output ends with the goblin defeat ending.
+  - **Both:** every scripted roll is used, and `profiles.json` is byte-for-byte unchanged afterwards, so ADR 0003's Health Points rule still holds.
+- **ADR 0002 quirks unchanged:** the `dragon-retreat` transcript still shows a full round before the first prompt, an invalid answer playing another round, and a mid-fight retreat with no ending.
+- **Not run:** playthroughs of the built program. `Program.cs` always uses the real `%LOCALAPPDATA%\ChooseYourAdventure` folder, and Kinsey chose not to have it inspected or changed during verification. The whole-game tests run the same `Game.StartGame` code with scripted input. A manual playthrough is still listed as a check for a person in ticket 05.
