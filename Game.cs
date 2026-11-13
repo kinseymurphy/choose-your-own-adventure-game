@@ -180,15 +180,15 @@ public class Game
                 return;
             }
 
-        if (input == "r" || input == "retreat")
-        {
-            Console.WriteLine(messages.GetMessage("retreat"));
-            return;
-        }
+            if (input == "r" || input == "retreat")
+            {
+                Console.WriteLine(messages.GetMessage("retreat"));
+                return;
+            }
 
-        Console.WriteLine(messages.GetMessage("invalid"));
+            Console.WriteLine(messages.GetMessage("invalid"));
+        }
     }
-}
 
     private void HandleGoblinEncounter(Player player, Goblin goblin, Messages messages)
     {

@@ -6,8 +6,7 @@ public class Dragon : Monster
     public override string VictoryKey => "victory";
     public override string DefeatKey => "defeat";
 
-    // Example use of taunts:
-    // string taunt = dragon.GetRandomDefenseTaunt().Replace("{race}", player.Race);
+    // Taunts are picked by Monster.GetRandomDefenseTaunt(messages); {0} is the player's race
     protected override IReadOnlyList<string> DefenseTauntKeys { get; } = new List<string>
 {
     "dragon_defense_taunt_1",

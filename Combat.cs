@@ -20,12 +20,12 @@ public class Combat
 
         while (true)
         {
-            PlayerAttacksDragonSequence();
+            PlayerAttacksMonsterSequence();
 
             if (monster.HealthPoints <= 0)
                 return true;
 
-            DragonAttacksPlayerSequence();
+            MonsterAttacksPlayerSequence();
 
             if (player.HealthPoints <= 0)
                 return false;
@@ -68,12 +68,12 @@ public class Combat
         return string.Join(Environment.NewLine, output);
     }
 
-    public void PlayerAttacksDragonSequence()
+    public void PlayerAttacksMonsterSequence()
     {
         Console.WriteLine(player.Attack(monster, messages));
     }
 
-    public void DragonAttacksPlayerSequence()
+    public void MonsterAttacksPlayerSequence()
     {
         Console.WriteLine(monster.Attack(player, messages));
     }

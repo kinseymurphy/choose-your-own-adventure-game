@@ -23,7 +23,7 @@ public class Goblin : Monster
 };
 
     // The goblin is weaker than the dragon: d12 stats and a small axe.
-    public Goblin(Die die) : base(die, "Grubnik", new Weapon("rusty axe", 6, "-------P"))
+    public Goblin(Die die) : base(die, "Grubnik", new Weapon("rusty axe", 6, "  /|\n | |==========\n  \\|"))
     {
         Strength = _die.Roll(12);
         Agility = _die.Roll(12);
