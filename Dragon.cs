@@ -6,8 +6,8 @@ public class Dragon : Monster
     public override string VictoryKey => "victory";
     public override string DefeatKey => "defeat";
 
-    // Taunts are picked by Monster.GetRandomDefenseTaunt(messages); {0} is the player's race
-    protected override IReadOnlyList<string> DefenseTauntKeys { get; } = new List<string>
+    // Combat picks a taunt with a roll of the die; {0} is the player's race
+    public override IReadOnlyList<string> DefenseTauntKeys { get; } = new List<string>
 {
     "dragon_defense_taunt_1",
     "dragon_defense_taunt_2",
@@ -15,7 +15,7 @@ public class Dragon : Monster
     "dragon_defense_taunt_4"
 };
 
-    protected override IReadOnlyList<string> DamageReplyKeys { get; } = new List<string>
+    public override IReadOnlyList<string> DamageReplyKeys { get; } = new List<string>
 {
     "dragon_damage_reply_1",
     "dragon_damage_reply_2",
@@ -25,7 +25,7 @@ public class Dragon : Monster
 
     // The dragon uses a placeholder weapon object for now.
     // This can be refined later if combat requirements expand.
-    public Dragon(Die die) : base(die, "Smolderfang", new Weapon("claws", 12, "<<< claws >>>"))
+    public Dragon(IDie die) : base(die, "Smolderfang", new Weapon("claws", 12, "<<< claws >>>"))
     {
         // Dragon stats are initialized using Die so the class aligns better
         // with the sequence/start-game diagrams and shared repo structure.

@@ -1,0 +1,88 @@
+===== Estadisticas de Combate =====
+--- Jugador ---
+Nombre: Ana
+Fuerza: 2
+Agilidad: 6
+Puntos de Vida: 8
+Oro: 0
+Proteccion: 3
+Arma: arco largo
+Puntos Maximos de Dano del Arma: 8
+
+--- Grubnik ---
+Nombre: Grubnik
+Fuerza: 11
+Agilidad: 5
+Puntos de Vida: 12
+Arma: hacha oxidada
+Puntos Maximos de Dano del Arma: 6
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Fallaste contra Grubnik.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik fallo contra Ana.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Fallaste contra Grubnik.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik golpea a Ana.
+Ana defendio exitosamente el ataque.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Golpeaste a Grubnik.
+Haces 5 de dano.
+Los puntos de vida de Grubnik ahora son 7.
+Me las pagaras! Hoy no, claro. Pero algun dia. Probablemente.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik golpea a Ana.
+Tu Armadura Magica absorbe 2 de dano.
+Grubnik hace 0 de dano.
+Los puntos de vida de Ana ahora son 8.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Fallaste contra Grubnik.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik golpea a Ana.
+Tu Armadura Magica absorbe 3 de dano.
+Grubnik hace 3 de dano.
+Los puntos de vida de Ana ahora son 5.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Fallaste contra Grubnik.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik golpea a Ana.
+Tu Armadura Magica absorbe 3 de dano.
+Grubnik hace 3 de dano.
+Los puntos de vida de Ana ahora son 2.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Arquero, sacas tu arco largo y atacas al goblin, que chilla de una forma nada aterradora.
+}    -->
+Fallaste contra Grubnik.
+Grubnik ataca a Ana con hacha oxidada!
+(>|
+  |
+  !
+Grubnik golpea a Ana.
+Tu Armadura Magica absorbe 3 de dano.
+Grubnik hace 3 de dano.
+Los puntos de vida de Ana ahora son 0.
+Ana ha sido derrotado.

@@ -32,107 +32,21 @@ public class DragonTests
     }
 
     [TestMethod]
+    public void NewDragon_RollsStrengthAgilityAndHealthPointsFromTheDie()
+    {
+        Dragon dragon = new Dragon(new ScriptedDie(15, 9, 18));
+
+        Assert.AreEqual(15, dragon.Strength);
+        Assert.AreEqual(9, dragon.Agility);
+        Assert.AreEqual(18, dragon.HealthPoints);
+    }
+
+    [TestMethod]
     public void Dragon_IsAMonster()
     {
         Dragon dragon = new Dragon(new Die());
 
         Assert.IsInstanceOfType(dragon, typeof(Monster));
-    }
-
-    [TestMethod]
-    public void GetRandomDefenseTaunt_ReturnsExpectedTaunt()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-        Messages messages = GetMessages();
-
-        string taunt = dragon.GetRandomDefenseTaunt(messages);
-
-        string[] validTaunts =
-        {
-        messages.GetMessage("dragon_defense_taunt_1"),
-        messages.GetMessage("dragon_defense_taunt_2"),
-        messages.GetMessage("dragon_defense_taunt_3"),
-        messages.GetMessage("dragon_defense_taunt_4")
-    };
-
-        CollectionAssert.Contains(validTaunts, taunt);
-    }
-
-    [TestMethod]
-    public void GetRandomDamageReply_ReturnsExpectedReply()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-        Messages messages = GetMessages();
-
-        string reply = dragon.GetRandomDamageReply(messages);
-
-        string[] validReplies =
-        {
-        messages.GetMessage("dragon_damage_reply_1"),
-        messages.GetMessage("dragon_damage_reply_2"),
-        messages.GetMessage("dragon_damage_reply_3"),
-        messages.GetMessage("dragon_damage_reply_4")
-    };
-
-        CollectionAssert.Contains(validReplies, reply);
-    }
-
-    [TestMethod]
-    public void Attack_ReturnsNonEmptyResultString()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 10,
-            HealthPoints = 30
-        };
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsFalse(string.IsNullOrWhiteSpace(result));
-    }
-
-    [TestMethod]
-    public void Attack_DoesNotIncreasePlayerHealth()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 10,
-            HealthPoints = 30
-        };
-
-        int startingHealth = player.HealthPoints;
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints <= startingHealth);
-    }
-
-    [TestMethod]
-    public void Attack_KeepsPlayerHealthNonNegative()
-    {
-        Die die = new Die();
-        Dragon dragon = new Dragon(die);
-
-        Player player = new Player
-        {
-            Name = "TestHero",
-            Agility = 0,
-            HealthPoints = 1
-        };
-
-        string result = dragon.Attack(player, GetMessages());
-
-        Assert.IsTrue(player.HealthPoints >= 0);
     }
 }
 

@@ -1,0 +1,53 @@
+===== Statistiche di Combattimento =====
+--- Giocatore ---
+Nome: Bob
+Forza: 14
+Agilita: 8
+Punti Vita: 30
+Oro: 5
+Protezione: 0
+Arma: spada lunga
+Danno Massimo dell'Arma: 12
+
+--- Smolderfang ---
+Nome: Smolderfang
+Forza: 10
+Agilita: 9
+Punti Vita: 15
+Arma: artigli
+Danno Massimo dell'Arma: 12
+Come Guerriero, estrai il tuo spada lunga e attacchi il drago.
+-)=====>
+Hai mancato Smolderfang.
+Smolderfang attacca Bob con artigli!
+<<< claws >>>
+Smolderfang ha mancato Bob.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Guerriero, estrai il tuo spada lunga e attacchi il drago.
+-)=====>
+Hai colpito Smolderfang.
+Smolderfang para con successo il tuo attacco.
+Tutto qui? Ho visto gattini con piu fuoco nelle zampe!
+Smolderfang attacca Bob con artigli!
+<<< claws >>>
+Smolderfang colpisce Bob.
+Smolderfang infligge 7 danni.
+I punti vita di Bob ora sono 23.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Guerriero, estrai il tuo spada lunga e attacchi il drago.
+-)=====>
+Hai colpito Smolderfang.
+Infliggi 9 danni.
+I punti vita di Smolderfang ora sono 6.
+Questo... era inaspettato. Ma ti assicuro che non succedera di nuovo.
+Smolderfang attacca Bob con artigli!
+<<< claws >>>
+Smolderfang colpisce Bob.
+Bob para con successo l'attacco.
+Scrivi 'a' per attaccare o 'r' per ritirarti.
+Come Guerriero, estrai il tuo spada lunga e attacchi il drago.
+-)=====>
+Hai colpito Smolderfang.
+Infliggi 12 danni.
+I punti vita di Smolderfang ora sono -6.
+Con le ultime parole 'Arggg!', hai sconfitto il drago.

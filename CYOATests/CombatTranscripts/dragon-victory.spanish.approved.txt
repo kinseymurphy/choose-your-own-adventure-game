@@ -1,0 +1,53 @@
+===== Estadisticas de Combate =====
+--- Jugador ---
+Nombre: Bob
+Fuerza: 14
+Agilidad: 8
+Puntos de Vida: 30
+Oro: 5
+Proteccion: 0
+Arma: espada larga
+Puntos Maximos de Dano del Arma: 12
+
+--- Smolderfang ---
+Nombre: Smolderfang
+Fuerza: 10
+Agilidad: 9
+Puntos de Vida: 15
+Arma: garras
+Puntos Maximos de Dano del Arma: 12
+Como Guerrero, sacas tu espada larga y atacas al dragon.
+-)=====>
+Fallaste contra Smolderfang.
+Smolderfang ataca a Bob con garras!
+<<< claws >>>
+Smolderfang fallo contra Bob.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Guerrero, sacas tu espada larga y atacas al dragon.
+-)=====>
+Golpeaste a Smolderfang.
+Smolderfang defendio exitosamente tu ataque.
+Eso es todo lo que tienes? He visto gatitos con mas fuego en sus patas!
+Smolderfang ataca a Bob con garras!
+<<< claws >>>
+Smolderfang golpea a Bob.
+Smolderfang hace 7 de dano.
+Los puntos de vida de Bob ahora son 23.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Guerrero, sacas tu espada larga y atacas al dragon.
+-)=====>
+Golpeaste a Smolderfang.
+Haces 9 de dano.
+Los puntos de vida de Smolderfang ahora son 6.
+Eso... fue inesperado. Pero te aseguro que no volvera a pasar.
+Smolderfang ataca a Bob con garras!
+<<< claws >>>
+Smolderfang golpea a Bob.
+Bob defendio exitosamente el ataque.
+Escribe 'a' para atacar o 'r' para retirarse.
+Como Guerrero, sacas tu espada larga y atacas al dragon.
+-)=====>
+Golpeaste a Smolderfang.
+Haces 12 de dano.
+Los puntos de vida de Smolderfang ahora son -6.
+Con las ultimas palabras de 'Arggg!', has derrotado al dragon.

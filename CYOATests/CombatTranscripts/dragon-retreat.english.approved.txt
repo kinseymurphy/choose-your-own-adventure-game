@@ -1,0 +1,37 @@
+===== Combat Stats =====
+--- Player ---
+Name: Bob
+Strength: 14
+Agility: 8
+Health Points: 30
+Gold: 5
+Protection: 0
+Weapon: long sword
+Weapon's Maximum Damage Points: 12
+
+--- Smolderfang ---
+Name: Smolderfang
+Strength: 10
+Agility: 9
+Health Points: 15
+Weapon: claws
+Weapon's Maximum Damage Points: 12
+As a Fighter, you withdraw your long sword and attack the dragon.
+-)=====>
+You hit Smolderfang.
+You deal 4 damage.
+Smolderfang's health points are now 11.
+Ow! That actually stung a bit!
+Smolderfang attacks Bob with claws!
+<<< claws >>>
+Smolderfang missed Bob.
+Enter 'a' to attack or 'r' to retreat.
+Invalid choice. Please try again.
+As a Fighter, you withdraw your long sword and attack the dragon.
+-)=====>
+You missed Smolderfang.
+Smolderfang attacks Bob with claws!
+<<< claws >>>
+Smolderfang missed Bob.
+Enter 'a' to attack or 'r' to retreat.
+You hastily retreat licking your wounds.

@@ -1,0 +1,88 @@
+===== Statistiques de Combat =====
+--- Joueur ---
+Nom: Ana
+Force: 2
+Agilite: 6
+Points de Vie: 8
+Or: 0
+Protection: 3
+Arme: arc long
+Points de Dommages Maximum: 8
+
+--- Grubnik ---
+Nom: Grubnik
+Force: 11
+Agilite: 5
+Points de Vie: 12
+Arme: hache rouillee
+Points de Dommages Maximum: 6
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez manque Grubnik.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik a manque Ana.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez manque Grubnik.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik touche Ana.
+Ana defend avec succes l'attaque.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez touche Grubnik.
+Vous infligez 5 degats.
+Les points de vie de Grubnik sont maintenant de 7.
+Tu vas me le payer ! Pas aujourd'hui, evidemment. Mais un jour. Probablement.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik touche Ana.
+Votre Armure Magique absorbe 2 degats.
+Grubnik inflige 0 degats.
+Les points de vie de Ana sont maintenant de 8.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez manque Grubnik.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik touche Ana.
+Votre Armure Magique absorbe 3 degats.
+Grubnik inflige 3 degats.
+Les points de vie de Ana sont maintenant de 5.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez manque Grubnik.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik touche Ana.
+Votre Armure Magique absorbe 3 degats.
+Grubnik inflige 3 degats.
+Les points de vie de Ana sont maintenant de 2.
+Tapez 'a' pour attaquer ou 'r' pour vous retirer.
+En tant que Archer, vous sortez votre arc long et attaquez le gobelin, qui couine d'une facon pas du tout terrifiante.
+}    -->
+Vous avez manque Grubnik.
+Grubnik attaque Ana avec hache rouillee!
+(>|
+  |
+  !
+Grubnik touche Ana.
+Votre Armure Magique absorbe 3 degats.
+Grubnik inflige 3 degats.
+Les points de vie de Ana sont maintenant de 0.
+Ana a ete vaincu.

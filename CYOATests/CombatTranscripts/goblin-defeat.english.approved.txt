@@ -1,0 +1,88 @@
+===== Combat Stats =====
+--- Player ---
+Name: Ana
+Strength: 2
+Agility: 6
+Health Points: 8
+Gold: 0
+Protection: 3
+Weapon: long bow
+Weapon's Maximum Damage Points: 8
+
+--- Grubnik ---
+Name: Grubnik
+Strength: 11
+Agility: 5
+Health Points: 12
+Weapon: rusty axe
+Weapon's Maximum Damage Points: 6
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You missed Grubnik.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik missed Ana.
+Enter 'a' to attack or 'r' to retreat.
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You missed Grubnik.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik hits Ana.
+Ana successfully defends the attack.
+Enter 'a' to attack or 'r' to retreat.
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You hit Grubnik.
+You deal 5 damage.
+Grubnik's health points are now 7.
+You'll pay for that! Not today, obviously. But some day. Probably.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik hits Ana.
+Your Magical Armor absorbs 2 damage.
+Grubnik deals 0 damage.
+Ana's health points are now 8.
+Enter 'a' to attack or 'r' to retreat.
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You missed Grubnik.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik hits Ana.
+Your Magical Armor absorbs 3 damage.
+Grubnik deals 3 damage.
+Ana's health points are now 5.
+Enter 'a' to attack or 'r' to retreat.
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You missed Grubnik.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik hits Ana.
+Your Magical Armor absorbs 3 damage.
+Grubnik deals 3 damage.
+Ana's health points are now 2.
+Enter 'a' to attack or 'r' to retreat.
+As a Archer, you withdraw your long bow and attack the goblin, who squeaks in a very un-terrifying way.
+}    -->
+You missed Grubnik.
+Grubnik attacks Ana with rusty axe!
+(>|
+  |
+  !
+Grubnik hits Ana.
+Your Magical Armor absorbs 3 damage.
+Grubnik deals 3 damage.
+Ana's health points are now 0.
+Ana has been defeated.

@@ -6,7 +6,7 @@ public class Goblin : Monster
     public override string VictoryKey => "goblin_victory";
     public override string DefeatKey => "goblin_defeat";
 
-    protected override IReadOnlyList<string> DefenseTauntKeys { get; } = new List<string>
+    public override IReadOnlyList<string> DefenseTauntKeys { get; } = new List<string>
 {
     "goblin_defense_taunt_1",
     "goblin_defense_taunt_2",
@@ -14,7 +14,7 @@ public class Goblin : Monster
     "goblin_defense_taunt_4"
 };
 
-    protected override IReadOnlyList<string> DamageReplyKeys { get; } = new List<string>
+    public override IReadOnlyList<string> DamageReplyKeys { get; } = new List<string>
 {
     "goblin_damage_reply_1",
     "goblin_damage_reply_2",
@@ -23,7 +23,7 @@ public class Goblin : Monster
 };
 
     // The goblin is weaker than the dragon: d12 stats and a small axe.
-    public Goblin(Die die) : base(die, "Grubnik", new Weapon("rusty axe", 6, "(>|\n  |\n  !"))
+    public Goblin(IDie die) : base(die, "Grubnik", new Weapon("rusty axe", 6, "(>|\n  |\n  !"))
     {
         Strength = _die.Roll(12);
         Agility = _die.Roll(12);
