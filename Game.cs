@@ -11,6 +11,7 @@ public class Game
         Die die = new Die();
 
         Dragon dragon = new Dragon(die);
+        Goblin goblin = new Goblin(die);
         Merchant merchant = new Merchant();
 
         // Language selection shown before Messages dictionary is loaded
@@ -66,6 +67,13 @@ public class Game
                         running = false;
                         inAdventureMenu = false;
                     }
+                    else if (selectedPath == "west")
+                    {
+                        HandleGoblinEncounter(player, goblin, messages);
+
+                        running = false;
+                        inAdventureMenu = false;
+                    }
                 }
             }
             else if (choice == "2")
@@ -80,14 +88,14 @@ public class Game
         }
     }
 
-    public void EndGame(bool playerWon, bool playerRetreated, Messages messages)
+    public void EndGame(Monster monster, bool playerWon, bool playerRetreated, Messages messages)
     {
         if (playerRetreated)
             Console.WriteLine(messages.GetMessage("retreat"));
         else if (playerWon)
-            Console.WriteLine(messages.GetMessage("victory"));
+            Console.WriteLine(messages.GetMessage(monster.VictoryKey));
         else
-            Console.WriteLine(messages.GetMessage("defeat"));
+            Console.WriteLine(messages.GetMessage(monster.DefeatKey));
     }
 
     public bool IsValidMenuChoice(string? input)
@@ -103,6 +111,7 @@ public class Game
         string trimmed = input.Trim().ToLower();
         return trimmed == "n" || trimmed == "north" ||
                trimmed == "s" || trimmed == "south" ||
+               trimmed == "w" || trimmed == "west" ||
                trimmed == "e" || trimmed == "exit";
     }
 
@@ -127,6 +136,9 @@ public class Game
 
             if (input == "south" || input == "s")
                 return "south";
+
+            if (input == "west" || input == "w")
+                return "west";
 
             if (input == "exit" || input == "e")
                 return "exit";
@@ -162,19 +174,57 @@ public class Game
                 }
                 else
                 {
-                   EndGame(playerWon, false, messages); 
+                   EndGame(dragon, playerWon, false, messages); 
                 }
                 
                 return;
             }
 
-        if (input == "r" || input == "retreat")
-        {
-            Console.WriteLine(messages.GetMessage("retreat"));
-            return;
-        }
+            if (input == "r" || input == "retreat")
+            {
+                Console.WriteLine(messages.GetMessage("retreat"));
+                return;
+            }
 
-        Console.WriteLine(messages.GetMessage("invalid"));
+            Console.WriteLine(messages.GetMessage("invalid"));
+        }
     }
-}
+
+    private void HandleGoblinEncounter(Player player, Goblin goblin, Messages messages)
+    {
+        Console.WriteLine(messages.GetMessage("west_path_narrative"));
+
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(string.Format(messages.GetMessage("goblin_intro"), goblin.Name));
+        Console.ResetColor();
+
+        Console.WriteLine(messages.GetMessage("goblin_stats_intro"));
+        goblin.DisplayStats(messages);
+        while (true)
+        {
+            Console.WriteLine(messages.GetMessage("goblin_encounter_prompt"));
+            Console.Write(messages.GetMessage("enter_choice"));
+            string? input = Console.ReadLine()?.Trim().ToLower();
+
+            if (input == "a" || input == "attack")
+            {
+                Combat combat = new Combat(player, goblin, messages);
+                bool playerWon = combat.StartCombat();
+
+                // Combat already showed its own retreat message
+                if (!combat.PlayerRetreated)
+                    EndGame(goblin, playerWon, false, messages);
+
+                return;
+            }
+
+            if (input == "r" || input == "retreat")
+            {
+                Console.WriteLine(messages.GetMessage("retreat"));
+                return;
+            }
+
+            Console.WriteLine(messages.GetMessage("invalid"));
+        }
+    }
 }

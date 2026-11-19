@@ -14,84 +14,84 @@ public class GameTests
     public void EndGame_DoesNotThrow_WhenPlayerWinsInEnglish()
     {
         Game game = new Game();
-        game.EndGame(true, false, GetMessages("English"));
+        game.EndGame(new Dragon(new Die()), true, false, GetMessages("English"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerLosesInEnglish()
     {
         Game game = new Game();
-        game.EndGame(false, false, GetMessages("English"));
+        game.EndGame(new Dragon(new Die()), false, false, GetMessages("English"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerWinsInSpanish()
     {
         Game game = new Game();
-        game.EndGame(true, false, GetMessages("Spanish"));
+        game.EndGame(new Dragon(new Die()), true, false, GetMessages("Spanish"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerWinsInFrench()
     {
         Game game = new Game();
-        game.EndGame(true, false, GetMessages("French"));
+        game.EndGame(new Dragon(new Die()), true, false, GetMessages("French"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerWinsInItalian()
     {
         Game game = new Game();
-        game.EndGame(true, false, GetMessages("Italian"));
+        game.EndGame(new Dragon(new Die()), true, false, GetMessages("Italian"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerLosesInSpanish()
     {
         Game game = new Game();
-        game.EndGame(false, false, GetMessages("Spanish"));
+        game.EndGame(new Dragon(new Die()), false, false, GetMessages("Spanish"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerLosesInFrench()
     {
         Game game = new Game();
-        game.EndGame(false, false, GetMessages("French"));
+        game.EndGame(new Dragon(new Die()), false, false, GetMessages("French"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerLosesInItalian()
     {
         Game game = new Game();
-        game.EndGame(false, false, GetMessages("Italian"));
+        game.EndGame(new Dragon(new Die()), false, false, GetMessages("Italian"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerRetreatsInEnglish()
     {
         Game game = new Game();
-        game.EndGame(false, true, GetMessages("English"));
+        game.EndGame(new Dragon(new Die()), false, true, GetMessages("English"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerRetreatsInSpanish()
     {
         Game game = new Game();
-        game.EndGame(false, true, GetMessages("Spanish"));
+        game.EndGame(new Dragon(new Die()), false, true, GetMessages("Spanish"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerRetreatsInFrench()
     {
         Game game = new Game();
-        game.EndGame(false, true, GetMessages("French"));
+        game.EndGame(new Dragon(new Die()), false, true, GetMessages("French"));
     }
 
     [TestMethod]
     public void EndGame_DoesNotThrow_WhenPlayerRetreatsInItalian()
     {
         Game game = new Game();
-        game.EndGame(false, true, GetMessages("Italian"));
+        game.EndGame(new Dragon(new Die()), false, true, GetMessages("Italian"));
     }
 
     // --- IsValidMenuChoice ---
@@ -169,6 +169,35 @@ public class GameTests
     }
 
     [TestMethod]
+    public void IsValidPathChoice_ReturnsTrue_ForW()
+    {
+        Game game = new Game();
+        Assert.IsTrue(game.IsValidPathChoice("w"));
+    }
+
+    [TestMethod]
+    public void IsValidPathChoice_ReturnsTrue_ForWest()
+    {
+        Game game = new Game();
+        Assert.IsTrue(game.IsValidPathChoice("west"));
+    }
+
+    [TestMethod]
+    public void IsValidPathChoice_ReturnsTrue_ForUppercaseWest()
+    {
+        Game game = new Game();
+        Assert.IsTrue(game.IsValidPathChoice("W"));
+        Assert.IsTrue(game.IsValidPathChoice("WEST"));
+    }
+
+    [TestMethod]
+    public void IsValidPathChoice_ReturnsTrue_ForPaddedWest()
+    {
+        Game game = new Game();
+        Assert.IsTrue(game.IsValidPathChoice(" west "));
+    }
+
+    [TestMethod]
     public void IsValidPathChoice_ReturnsTrue_ForE()
     {
         Game game = new Game();
@@ -186,7 +215,7 @@ public class GameTests
     public void IsValidPathChoice_ReturnsFalse_ForInvalidInput()
     {
         Game game = new Game();
-        Assert.IsFalse(game.IsValidPathChoice("west"));
+        Assert.IsFalse(game.IsValidPathChoice("east"));
     }
 
     [TestMethod]

@@ -38,7 +38,7 @@ public class CombatTests
     }
 
     [TestMethod]
-    public void Combat_Constructor_InitializesPlayerAndDragon()
+    public void Combat_Constructor_InitializesPlayerAndMonster()
     {
         Player player = new Player();
         Dragon dragon = new Dragon(new Die());
@@ -47,7 +47,7 @@ public class CombatTests
         Combat combat = new Combat(player, dragon, messages);
 
         Assert.AreSame(player, combat.player);
-        Assert.AreSame(dragon, combat.dragon);
+        Assert.AreSame(dragon, combat.monster);
     }
 
     [TestMethod]
@@ -89,7 +89,51 @@ public class CombatTests
 
         StringAssert.Contains(result, messages.GetMessage("combat_stats_header"));
         StringAssert.Contains(result, messages.GetMessage("combat_player_header"));
-        StringAssert.Contains(result, messages.GetMessage("combat_dragon_header"));
+        StringAssert.Contains(result, string.Format(messages.GetMessage("combat_monster_header"), dragon.Name));
+    }
+
+    [TestMethod]
+    public void Combat_Constructor_StoresGoblinAsMonster()
+    {
+        Player player = new Player();
+        Goblin goblin = new Goblin(new Die());
+
+        Combat combat = new Combat(player, goblin, CreateEnglishMessages());
+
+        Assert.AreSame(goblin, combat.monster);
+    }
+
+    [TestMethod]
+    public void GetCombatStatsDisplay_WithGoblin_ShowsGrubnikHeaderAndStats()
+    {
+        Player player = CreateTestPlayer();
+        Goblin goblin = new Goblin(new Die()) { Strength = 7, Agility = 5, HealthPoints = 9 };
+        Messages messages = CreateEnglishMessages();
+
+        Combat combat = new Combat(player, goblin, messages);
+
+        string result = combat.GetCombatStatsDisplay();
+
+        StringAssert.Contains(result, "--- Grubnik ---");
+        StringAssert.Contains(result, messages.GetMessage("stats_strength") + "7");
+        StringAssert.Contains(result, messages.GetMessage("stats_agility") + "5");
+        StringAssert.Contains(result, messages.GetMessage("stats_health") + "9");
+        StringAssert.Contains(result, messages.GetMessage("stats_weapon") + "rusty axe");
+        StringAssert.Contains(result, messages.GetMessage("stats_damage") + "6");
+    }
+
+    [TestMethod]
+    public void GetCombatStatsDisplay_MonsterHeaderShowsMonsterName()
+    {
+        Player player = CreateTestPlayer();
+        Dragon dragon = CreateTestDragon();
+        Messages messages = CreateEnglishMessages();
+
+        Combat combat = new Combat(player, dragon, messages);
+
+        string result = combat.GetCombatStatsDisplay();
+
+        StringAssert.Contains(result, "--- Smolderfang ---");
     }
 
     [TestMethod]

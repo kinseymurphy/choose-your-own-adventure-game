@@ -8,7 +8,19 @@ public class MessagesTests
                                    "roll_gold", "stats_gold", "stats_protection",
                                    "merchant_greeting", "merchant_menu", "merchant_armor_purchased",
                                    "merchant_not_enough_gold", "merchant_already_owned", "merchant_farewell",
-                                   "armor_absorbed_damage", "merchant_weapon_purchased" };
+                                   "armor_absorbed_damage", "merchant_weapon_purchased",
+                                   "player_missed_monster", "player_hit_monster", "monster_defended_player_attack",
+                                   "monster_health_now", "monster_attack_intro", "monster_missed_player",
+                                   "monster_hit_player", "player_defended_monster_attack", "monster_damage_dealt",
+                                   "combat_monster_header",
+                                   "path_prompt_full", "path_invalid", "west_path_narrative",
+                                   "goblin_intro", "goblin_stats_intro", "goblin_stats_header",
+                                   "goblin_encounter_prompt", "goblin_player_attack_intro",
+                                   "goblin_defeated_narrative", "goblin_victory", "goblin_defeat",
+                                   "goblin_defense_taunt_1", "goblin_defense_taunt_2",
+                                   "goblin_defense_taunt_3", "goblin_defense_taunt_4",
+                                   "goblin_damage_reply_1", "goblin_damage_reply_2",
+                                   "goblin_damage_reply_3", "goblin_damage_reply_4" };
 
     [TestMethod]
     public void Constructor_DefaultLanguageIsEnglish()
@@ -194,6 +206,21 @@ public class MessagesTests
     }
 
     [TestMethod]
+    [DataRow("English")]
+    [DataRow("Spanish")]
+    [DataRow("French")]
+    [DataRow("Italian")]
+    public void PathMessages_ListWestChoice(string language)
+    {
+        Messages messages = new Messages();
+        messages.SetCurrentLanguage(language);
+        messages.ReadDictionary();
+
+        StringAssert.Contains(messages.GetMessage("path_prompt_full"), "'w'");
+        StringAssert.Contains(messages.GetMessage("path_invalid"), "'w'");
+    }
+
+    [TestMethod]
     [DataRow("English", "magical long sword", "magical long sword")]
     [DataRow("English", "magical lightning bolt spell", "magical lightning bolt spell")]
     [DataRow("English", "magical dagger", "magical dagger")]
@@ -210,6 +237,10 @@ public class MessagesTests
     [DataRow("Italian", "magical lightning bolt spell", "incantesimo del fulmine magico")]
     [DataRow("Italian", "magical dagger", "pugnale magico")]
     [DataRow("Italian", "magical long bow", "arco lungo magico")]
+    [DataRow("English", "rusty axe", "rusty axe")]
+    [DataRow("Spanish", "rusty axe", "hacha oxidada")]
+    [DataRow("French", "rusty axe", "hache rouillee")]
+    [DataRow("Italian", "rusty axe", "ascia arrugginita")]
     public void TranslateWeaponForDisplay_TranslatesMagicalWeapon(string language, string weaponType, string expected)
     {
         Messages messages = new Messages();
