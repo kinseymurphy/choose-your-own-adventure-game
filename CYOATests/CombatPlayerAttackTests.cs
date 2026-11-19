@@ -100,6 +100,24 @@ public class CombatPlayerAttackTests
         StringAssert.StartsWith(output, intro + Environment.NewLine + "-)==>" + Environment.NewLine);
     }
 
+    // Same rule as the Monster's attack: blank art isn't printed
+    [TestMethod]
+    [DataRow("dragon")]
+    [DataRow("goblin")]
+    public void WeaponWithBlankArt_PrintsNoArtLine(string kind)
+    {
+        Messages messages = GetMessages("English");
+        Monster monster = CreateMonster(kind);
+
+        string output = PlayerAttacks(CreatePlayer(new Weapon("dagger", 6, " ")), monster, "English", 11);
+
+        string intro = string.Format(
+            messages.GetMessage(monster.PlayerAttackIntroKey),
+            messages.TranslateOccupationForDisplay("Thief"),
+            messages.TranslateWeaponForDisplay("dagger"));
+        Assert.AreEqual(intro + Environment.NewLine + $"You missed {monster.Name}." + Environment.NewLine, output);
+    }
+
     [TestMethod]
     [DataRow("dragon", "English")]
     [DataRow("dragon", "Spanish")]
@@ -152,16 +170,16 @@ public class CombatPlayerAttackTests
     [DataRow("goblin", "Spanish")]
     [DataRow("goblin", "French")]
     [DataRow("goblin", "Italian")]
-    public void FinalHit_LeavesMonsterHealthBelowZeroAndShowsItsDefeatedNarrative(string kind, string language)
+    public void FinalHit_StopsMonsterHealthAtZeroAndShowsItsDefeatedNarrative(string kind, string language)
     {
         Messages messages = GetMessages(language);
         Monster monster = CreateMonster(kind, healthPoints: 4);
 
-        // No reply roll after a defeating hit
+        // A hit for 6 against 4 Health Points; no reply roll after a defeating hit
         string output = PlayerAttacks(CreatePlayer(), monster, language, 1, 10, 6);
 
-        Assert.AreEqual(-2, monster.HealthPoints);
-        StringAssert.Contains(output, string.Format(messages.GetMessage("monster_health_now"), monster.Name, -2));
+        Assert.AreEqual(0, monster.HealthPoints);
+        StringAssert.Contains(output, string.Format(messages.GetMessage("monster_health_now"), monster.Name, 0));
         StringAssert.EndsWith(output, messages.GetMessage(monster.DefeatedNarrativeKey) + Environment.NewLine);
     }
 

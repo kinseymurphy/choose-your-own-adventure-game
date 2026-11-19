@@ -20,5 +20,5 @@ As a Fighter, you withdraw your magical long sword and attack the dragon.
 -)=====>
 You hit Smolderfang.
 You deal 16 damage.
-Smolderfang's health points are now -1.
+Smolderfang's health points are now 0.
 With the last words of 'Arggg!', you have defeated the dragon.

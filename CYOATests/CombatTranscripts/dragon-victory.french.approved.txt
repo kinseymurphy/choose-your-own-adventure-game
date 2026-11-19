@@ -49,5 +49,5 @@ En tant que Guerrier, vous sortez votre epee longue et attaquez le dragon.
 -)=====>
 Vous avez touche Smolderfang.
 Vous infligez 12 degats.
-Les points de vie de Smolderfang sont maintenant de -6.
+Les points de vie de Smolderfang sont maintenant de 0.
 Avec les derniers mots 'Arggg!', vous avez vaincu le dragon.

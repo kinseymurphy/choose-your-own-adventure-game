@@ -49,5 +49,5 @@ Come Guerriero, estrai il tuo spada lunga e attacchi il drago.
 -)=====>
 Hai colpito Smolderfang.
 Infliggi 12 danni.
-I punti vita di Smolderfang ora sono -6.
+I punti vita di Smolderfang ora sono 0.
 Con le ultime parole 'Arggg!', hai sconfitto il drago.

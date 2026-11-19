@@ -49,5 +49,5 @@ Como Guerrero, sacas tu espada larga y atacas al dragon.
 -)=====>
 Golpeaste a Smolderfang.
 Haces 12 de dano.
-Los puntos de vida de Smolderfang ahora son -6.
+Los puntos de vida de Smolderfang ahora son 0.
 Con las ultimas palabras de 'Arggg!', has derrotado al dragon.
