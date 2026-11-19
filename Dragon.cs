@@ -92,11 +92,15 @@ public class Dragon
             return string.Join(Environment.NewLine, output);
         }
 
-        int damage = RollDamage();
+        int damageRoll = RollDamage();
+        int damage = player.ReduceDamage(damageRoll);
         player.HealthPoints -= damage;
 
         if (player.HealthPoints < 0)
             player.HealthPoints = 0;
+
+        if (player.Protection > 0)
+            output.Add(string.Format(messages.GetMessage("armor_absorbed_damage"), damageRoll - damage));
 
         output.Add(string.Format(messages.GetMessage("dragon_damage_dealt"), Name, damage));
         output.Add(string.Format(messages.GetMessage("player_health_now"), player.Name, player.HealthPoints));

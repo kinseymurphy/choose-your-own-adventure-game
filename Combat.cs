@@ -54,15 +54,7 @@ public class Combat
         output.Add(messages.GetMessage("combat_stats_header"));
         output.Add(messages.GetMessage("combat_player_header"));
         output.Add(messages.GetMessage("stats_name") + player.Name);
-        output.Add(messages.GetMessage("stats_strength") + player.Strength);
-        output.Add(messages.GetMessage("stats_agility") + player.Agility);
-        output.Add(messages.GetMessage("stats_health") + player.HealthPoints);
-
-        if (player.Weapon != null)
-        {
-            output.Add(messages.GetMessage("stats_weapon") + messages.TranslateWeaponForDisplay(player.Weapon.Type));
-            output.Add(messages.GetMessage("stats_damage") + player.Weapon.MaxDamage);
-        }
+        output.AddRange(player.GetCombatStatLines(messages));
 
         output.Add("");
         output.Add(messages.GetMessage("combat_dragon_header"));

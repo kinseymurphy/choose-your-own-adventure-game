@@ -3,6 +3,7 @@ public class Weapon
     public string Type { get; set; }
     public int MaxDamage { get; set; }
     public string AsciiArt { get; set; }
+    public bool IsMagical { get; set; }
 
     public Weapon(string type, int maxDamage, string asciiArt)
     {

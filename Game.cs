@@ -11,6 +11,7 @@ public class Game
         Die die = new Die();
 
         Dragon dragon = new Dragon(die);
+        Merchant merchant = new Merchant();
 
         // Language selection shown before Messages dictionary is loaded
         Console.WriteLine("Select language / Selecciona idioma / Choisissez la langue / Scegli la lingua:");
@@ -56,6 +57,7 @@ public class Game
                     else if (selectedPath == "south")
                     {
                         Console.WriteLine(messages.GetMessage("south_path_narrative"));
+                        merchant.StartEncounter(player, messages);
                     }
                     else if (selectedPath == "north")
                     {

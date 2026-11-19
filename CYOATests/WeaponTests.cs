@@ -12,4 +12,12 @@ public class WeaponTests
         Assert.AreEqual(12, weapon.MaxDamage);
         Assert.AreEqual("-)====>", weapon.AsciiArt);
     }
+
+    [TestMethod]
+    public void NewWeapon_IsNotMagical()
+    {
+        Weapon weapon = new Weapon("long sword", 12, "-)====>");
+
+        Assert.IsFalse(weapon.IsMagical);
+    }
 }
