@@ -1,5 +1,17 @@
 public class Game
 {
+    // Null when the game runs without saving, as the older tests do
+    private readonly ProfileStore? _profileStore;
+
+    public Game() : this(null)
+    {
+    }
+
+    public Game(ProfileStore? profileStore)
+    {
+        _profileStore = profileStore;
+    }
+
     public void StartGame()
     {
         // Title screen
@@ -41,8 +53,7 @@ public class Game
 
             if (choice == "1")
             {
-                Player player = new Player();
-                player.CreateCharacter(messages);
+                Player player = ChooseOrCreatePlayer(messages);
 
                 bool inAdventureMenu = true;
                 while (inAdventureMenu)
@@ -59,6 +70,7 @@ public class Game
                     {
                         Console.WriteLine(messages.GetMessage("south_path_narrative"));
                         merchant.StartEncounter(player, messages);
+                        SaveProfile(player, messages);
                     }
                     else if (selectedPath == "north")
                     {
@@ -145,6 +157,82 @@ public class Game
 
             Console.WriteLine(messages.GetMessage("path_invalid"));
         }
+    }
+
+    private Player ChooseOrCreatePlayer(Messages messages)
+    {
+        List<Player> profiles = LoadProfiles(messages);
+
+        if (profiles.Count > 0)
+        {
+            Player? chosen = PromptForProfile(profiles, messages);
+            if (chosen != null)
+            {
+                Console.WriteLine(string.Format(messages.GetMessage("profile_welcome_back"), chosen.Name));
+                chosen.DisplayStats(messages);
+                return chosen;
+            }
+        }
+
+        Player player = new Player();
+        player.CreateCharacter(messages, _profileStore == null ? null : _profileStore.IsNameTaken);
+        SaveProfile(player, messages);
+        return player;
+    }
+
+    private List<Player> LoadProfiles(Messages messages)
+    {
+        if (_profileStore == null)
+            return new List<Player>();
+
+        ProfileLoadResult result = _profileStore.Load();
+
+        if (result.WasUnreadable && result.BackupFileName != null)
+            Console.WriteLine(string.Format(messages.GetMessage("profile_file_unreadable"), result.BackupFileName));
+        else if (result.WasUnreadable)
+            Console.WriteLine(messages.GetMessage("profile_file_unreadable_not_moved"));
+
+        return result.Profiles;
+    }
+
+    // Returns the chosen Profile, or null when the player picks New profile
+    private Player? PromptForProfile(List<Player> profiles, Messages messages)
+    {
+        while (true)
+        {
+            Console.WriteLine(messages.GetMessage("profile_menu_header"));
+            for (int i = 0; i < profiles.Count; i++)
+            {
+                Player profile = profiles[i];
+                Console.WriteLine(string.Format(
+                    messages.GetMessage("profile_menu_entry"),
+                    i + 1,
+                    profile.Name,
+                    messages.TranslateRaceForDisplay(profile.Race),
+                    messages.TranslateOccupationForDisplay(profile.Occupation)));
+            }
+            Console.WriteLine($"{profiles.Count + 1}. {messages.GetMessage("profile_new_option")}");
+            Console.Write(messages.GetMessage("enter_choice"));
+            string? input = Console.ReadLine()?.Trim();
+
+            if (int.TryParse(input, out int number))
+            {
+                if (number >= 1 && number <= profiles.Count)
+                    return profiles[number - 1];
+
+                if (number == profiles.Count + 1)
+                    return null;
+            }
+
+            Console.WriteLine(messages.GetMessage("invalid"));
+        }
+    }
+
+    // Health Points rule (ADR 0003): only call this before any combat damage can happen in the Session
+    private void SaveProfile(Player player, Messages messages)
+    {
+        if (_profileStore != null && !_profileStore.Save(player))
+            Console.WriteLine(messages.GetMessage("profile_save_failed"));
     }
 
     private void HandleDragonEncounter(Player player, Dragon dragon, Messages messages)

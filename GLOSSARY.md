@@ -10,6 +10,14 @@ A text adventure in which the player creates a character, chooses a path through
 The player's currency, rolled once during character creation and spent at the Merchant.
 _Avoid_: Money, coins, currency
 
+**Profile**:
+A saved character the player can pick again at startup. A Profile holds exactly one character: stats, Gold, Protection and Weapon. It is known by its character's name, which no other Profile shares, ignoring case. Ending a Dead End doesn't remove the Profile.
+_Avoid_: Account, save slot, user
+
+**Session**:
+One play-through with a character, from choosing or creating a Profile until a Dead End or Exit. Every Session starts at the Health Points the character rolled when it was created; damage taken lasts only for that Session.
+_Avoid_: Game, run, playthrough
+
 ### Paths and encounters
 
 **Merchant Encounter**:
@@ -21,7 +29,7 @@ The trader met on the South path who sells Magical Armor and Magical Weapons for
 _Avoid_: Shopkeeper, vendor, trader
 
 **Dead End**:
-An encounter after which the game ends, whatever the outcome: victory, defeat or retreat. The Dragon Encounter and the Goblin Encounter are Dead Ends; the Merchant Encounter is not.
+An encounter after which the Session ends, whatever the outcome: victory, defeat or retreat. The Dragon Encounter and the Goblin Encounter are Dead Ends; the Merchant Encounter is not.
 _Avoid_: Final encounter, boss fight
 
 **Dragon Encounter**:
